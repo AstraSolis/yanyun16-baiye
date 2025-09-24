@@ -1,0 +1,230 @@
+# ==================================================
+# Node.js 相关文件
+# ==================================================
+
+# 依赖包目录
+node_modules/
+
+# 包管理器调试日志
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# 包管理器锁定文件（保留package-lock.json，忽略其他）
+# yarn.lock
+# pnpm-lock.yaml
+
+# ==================================================
+# Next.js 相关文件
+# ==================================================
+
+# Next.js 构建输出目录
+.next/
+out/
+
+# Next.js 缓存目录
+.next/cache/
+
+# TypeScript 构建信息
+*.tsbuildinfo
+next-env.d.ts.backup
+
+# ==================================================
+# 构建和部署相关
+# ==================================================
+
+# 生产构建目录
+dist/
+build/
+
+# 静态导出目录（如果使用不同名称）
+export/
+
+# ==================================================
+# 环境变量和配置文件
+# ==================================================
+
+# 环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# 本地配置文件
+config.local.js
+config.local.json
+
+# ==================================================
+# IDE 和编辑器文件
+# ==================================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim 编辑器
+*.swp
+*.swo
+*~
+
+# Emacs 编辑器
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ==================================================
+# 操作系统生成的文件
+# ==================================================
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ==================================================
+# 日志文件
+# ==================================================
+
+# 通用日志文件
+logs/
+*.log
+
+# 特定日志文件
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# ==================================================
+# 运行时数据
+# ==================================================
+
+# 进程ID文件
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage 目录和文件（测试覆盖率）
+coverage/
+*.lcov
+.nyc_output/
+
+# ==================================================
+# 临时文件和缓存
+# ==================================================
+
+# 临时目录
+tmp/
+temp/
+.tmp/
+
+# ESLint 缓存
+.eslintcache
+
+# Prettier 缓存
+.prettiercache
+
+# StyleLint 缓存
+.stylelintcache
+
+# ==================================================
+# 包管理器缓存
+# ==================================================
+
+# npm 缓存
+.npm
+
+# Yarn 缓存
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ==================================================
+# 测试相关文件
+# ==================================================
+
+# Jest
+.jest/
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# ==================================================
+# 项目特定配置
+# ==================================================
+
+# 本地内容配置文件（包含真实数据，不应上传到版本控制）
+content/
+
+# 生成的静态数据文件
+public/data/
+
+# 保留内容模板文件（用于项目部署和初始化）
+!content-template/
+
+# 本地部署脚本
+deploy-local.*
+
+# 个人测试文件
+test-personal.*
+playground.*
+
+# ==================================================
+# 其他工具生成的文件
+# ==================================================
+
+# Webpack Bundle Analyzer
+.webpack-bundle-analyzer/
+
+# Storybook 构建输出
+storybook-static/
+
+# TypeDoc 生成的文档
+docs/
+
+# 性能分析文件
+.profile
+
+# Rush 相关文件
+common/temp/

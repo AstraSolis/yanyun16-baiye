@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+
+@config '../../tailwind.config.ts';
+
+/* 
+  TailwindCSS v4 优化：移除兼容性样式以提升性能
+  项目中的边框都明确指定了颜色，不依赖默认值
+*/
+
+@utility glass-effect {
+  /* 更新玻璃拟态效果以匹配黑色主题 */
+  @apply backdrop-blur-xs bg-white/5 border border-white/20;
+
+  /* Reduced motion fallbacks */
+}
+
+@utility card-hover {
+  @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+
+  /* Reduced motion fallbacks */
+  @media (prefers-reduced-motion: reduce) {
+    @apply hover:scale-100 transition-none;
+  }
+}
+
+@utility btn-primary {
+  /* 添加shader-showcase风格的按钮效果 */
+  @apply px-8 py-3 rounded-full bg-white text-black font-normal text-xs transition-all duration-200 hover:bg-white/90 cursor-pointer;
+
+  /* Reduced motion fallbacks */
+}
+
+@utility btn-secondary {
+  @apply px-8 py-3 rounded-full bg-transparent border border-white/30 text-white font-normal text-xs transition-all duration-200 hover:bg-white/10 hover:border-white/50 cursor-pointer;
+
+  /* Reduced motion fallbacks */
+}
+
+@layer base {
+  :root {
+    /* 采用shader-showcase的戏剧化黑色主题设计 */
+    --background: #000000; /* 纯黑背景 */
+    --foreground: oklch(1 0 0); /* 纯白文字 */
+    --card: oklch(0.95 0 0); /* 浅灰色卡片 */
+    --card-foreground: oklch(0 0 0); /* 卡片上的黑色文字 */
+    --popover: oklch(1 0 0); /* 白色弹出框 */
+    --popover-foreground: oklch(0 0 0); /* 弹出框黑色文字 */
+    --primary: oklch(0.65 0.2 270); /* 紫色强调色 */
+    --primary-foreground: oklch(1 0 0); /* 主色上的白色文字 */
+    --secondary: oklch(0.95 0 0); /* 浅灰色次要元素 */
+    --secondary-foreground: oklch(0 0 0); /* 次要元素黑色文字 */
+    --muted: oklch(0.25 0 0); /* 深灰色静音元素 */
+    --muted-foreground: oklch(0.95 0 0); /* 静音元素浅灰色文字 */
+    --accent: oklch(0.65 0.2 270); /* 紫色交互元素 */
+    --accent-foreground: oklch(1 0 0); /* 强调元素白色文字 */
+    --destructive: oklch(0.6 0.2 40); /* 琥珀色危险操作 */
+    --destructive-foreground: oklch(1 0 0); /* 危险操作白色文字 */
+    --border: oklch(1 0 0); /* 白色边框 */
+    --input: oklch(0.95 0 0); /* 浅灰色输入框 */
+    --ring: oklch(0.65 0.2 270); /* 紫色焦点环 */
+    --radius: 0.5rem; /* 柔和的圆角 */
+
+    /* 字体变量 */
+    --font-instrument-serif: "Instrument Serif", serif;
+    --font-figtree: "Figtree", sans-serif;
+  }
+
+  .dark {
+    /* 深色模式保持相同的戏剧化黑色背景主题 */
+    --background: #000000;
+    --foreground: oklch(1 0 0);
+    --card: oklch(0.1 0 0);
+    --card-foreground: oklch(1 0 0);
+    --popover: oklch(0.1 0 0);
+    --popover-foreground: oklch(1 0 0);
+    --primary: oklch(0.7 0.25 270);
+    --primary-foreground: oklch(0 0 0);
+    --secondary: oklch(0.15 0 0);
+    --secondary-foreground: oklch(1 0 0);
+    --muted: oklch(0.15 0 0);
+    --muted-foreground: oklch(0.7 0 0);
+    --accent: oklch(0.7 0.25 270);
+    --accent-foreground: oklch(0 0 0);
+    --destructive: oklch(0.5 0.2 40);
+    --destructive-foreground: oklch(1 0 0);
+    --border: oklch(0.3 0 0);
+    --input: oklch(0.15 0 0);
+    --ring: oklch(0.7 0.25 270);
+    --font-instrument-serif: "Instrument Serif", serif;
+    --font-figtree: "Figtree", sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* 设置Figtree为默认字体系列 */
+    font-family: var(--font-figtree);
+  }
+  
+  /* Focus styles for accessibility */
+  *:focus {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+  
+  *:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Instrument Serif字体类 */
+  .instrument {
+    font-family: var(--font-instrument-serif);
+  }
+}
+
+@layer components {
+  @media (prefers-reduced-motion: reduce) {
+    
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
+
+/* 回退动画效果 */
+@keyframes subtle-flow {
+  0% { 
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% { 
+    filter: hue-rotate(10deg) brightness(1.1);
+  }
+  100% { 
+    filter: hue-rotate(0deg) brightness(1);
+  }
+}
+
+/* 着色器淡入动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 页面内容出现动画 */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

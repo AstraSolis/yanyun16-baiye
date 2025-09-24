@@ -1,0 +1,121 @@
+{
+  // 推广页面配置文件
+  "pageInfo": {
+    "title": "百业宣传", // 页面标题
+    "subtitle": "团队文化与愿景", // 副标题
+    "description": "了解燕云十六声百业的发展历程、团队文化与未来愿景", // 页面描述
+    "keywords": ["百业宣传", "团队介绍", "团队文化", "发展历程", "未来愿景"], // SEO关键词
+    "lastUpdated": "2024-09-21"
+  },
+  
+  // 页面内容配置
+  "content": {
+    "hero": {
+      "title": "百业宣传",
+      "description": "了解燕云十六声百业的发展历程、团队文化与未来愿景",
+      "badge": "以官方公告为准"
+    },
+    
+    // 团队概览
+    "overview": {
+      "title": "关于燕云十六声百业",
+      "description": "此部分内容待官方确认，请以官方公告为准。如需了解最新信息，请关注官方渠道。",
+      "badge": "待官方确认"
+    },
+    
+    // 团队亮点配置
+    "highlights": [
+      {
+        "icon": "Users",
+        "title": "团队规模",
+        "description": "以官方信息为准",
+        "badge": "不断壮大",
+        "details": "具体团队规模和成员构成请以官方信息为准"
+      },
+      {
+        "icon": "Target", 
+        "title": "发展目标",
+        "description": "以官方公告为准",
+        "badge": "持续发展",
+        "details": "团队发展规划和短长期目标请关注官方公告"
+      },
+      {
+        "icon": "Trophy",
+        "title": "重要成就",
+        "description": "以官方信息为准", 
+        "badge": "值得骄傲",
+        "details": "团队重要成就和里程碑请以官方发布信息为准"
+      },
+      {
+        "icon": "Calendar",
+        "title": "发展历程",
+        "description": "以官方信息为准",
+        "badge": "稳步前进", 
+        "details": "团队成立和发展历程请参考官方资料"
+      }
+    ],
+    
+    // 详细内容板块
+    "detailSections": [
+      {
+        "id": "culture",
+        "title": "团队文化",
+        "content": "此部分内容待官方确认，具体的团队文化和价值观请以官方信息为准。建议定期关注官方公告以获取最新信息。",
+        "badge": "待官方确认",
+        "type": "text" // text, list, timeline
+      },
+      {
+        "id": "vision",
+        "title": "发展愿景", 
+        "content": "此部分内容待官方确认，发展规划和未来愿景请以官方公告为准。如需了解详细信息，请通过官方渠道获取。",
+        "badge": "待官方确认",
+        "type": "text"
+      },
+      {
+        "id": "values",
+        "title": "核心价值",
+        "items": [
+          {
+            "title": "专业精神",
+            "description": "待官方确认 - 具体价值观内容"
+          },
+          {
+            "title": "团队协作",
+            "description": "待官方确认 - 具体价值观内容"  
+          },
+          {
+            "title": "持续发展",
+            "description": "待官方确认 - 具体价值观内容"
+          }
+        ],
+        "badge": "待官方确认",
+        "type": "list"
+      }
+    ],
+    
+    "notices": [
+      {
+        "type": "warning",
+        "title": "重要提醒",
+        "content": "本页面所有信息均为占位内容，实际内容请以燕云十六声百业官方公告为准。网站管理员需要根据官方信息更新此页面内容，并在 SOURCES.md 中添加相应的来源链接。",
+        "icon": "AlertTriangle"
+      }
+    ]
+  },
+  
+  // 显示设置
+  "display": {
+    "layout": "sections", // overview-highlights, sections, timeline
+    "highlightStyle": "cards", // cards, grid, showcase
+    "enableAnimations": true,
+    "enableHoverEffects": true,
+    "cardSpacing": "normal" // compact, normal, spacious
+  },
+  
+  // SEO配置
+  "seo": {
+    "metaTitle": "团队介绍 - 百业",
+    "metaDescription": "深入了解燕云十六声百业团队的文化理念、发展历程和未来愿景。专业团队，值得信赖的选择。",
+    "ogImage": "/assets/og-promotion.jpg"
+  }
+}
