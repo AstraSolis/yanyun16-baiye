@@ -3,7 +3,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { useHomeConfig, usePageMetadata, debugPageConfig } from '@/hooks/usePageConfig'
+import { useHomeConfig, usePageMetadata, useDebugPageConfig } from '@/hooks/usePageConfig'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Loader2, Settings, Eye, Code } from 'lucide-react'
 
@@ -17,7 +17,7 @@ export function ConfigExample() {
   
   // 开发环境下启用调试
   if (process.env.NODE_ENV === 'development') {
-    debugPageConfig('home')
+    useDebugPageConfig('home')
   }
 
   if (loading) {

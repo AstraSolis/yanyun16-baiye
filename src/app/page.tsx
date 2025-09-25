@@ -94,7 +94,7 @@ export default function HomePage() {
       {/* Hero Section - 保持原有设计 */}
       <section 
         id="hero"
-        ref={(el) => (sectionsRef.current[0] = el)}
+        ref={(el) => { sectionsRef.current[0] = el }}
         className="min-h-screen relative opacity-0"
       >
         <div
@@ -157,7 +157,7 @@ export default function HomePage() {
       {/* Promotion Section */}
       <section
         id="promotion"
-        ref={(el) => (sectionsRef.current[1] = el)}
+        ref={(el) => { sectionsRef.current[1] = el }}
         className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
       >
         {/* Section Image */}
@@ -228,7 +228,7 @@ export default function HomePage() {
       {/* Activities Section */}
       <section
         id="activities"
-        ref={(el) => (sectionsRef.current[2] = el)}
+        ref={(el) => { sectionsRef.current[2] = el }}
         className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
       >
         {/* Section Image */}
@@ -298,7 +298,7 @@ export default function HomePage() {
       {/* Members Section */}
       <section
         id="members"
-        ref={(el) => (sectionsRef.current[3] = el)}
+        ref={(el) => { sectionsRef.current[3] = el }}
         className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
       >
         {/* Section Image */}
@@ -368,7 +368,7 @@ export default function HomePage() {
       {/* Join Section */}
       <section
         id="join"
-        ref={(el) => (sectionsRef.current[4] = el)}
+        ref={(el) => { sectionsRef.current[4] = el }}
         className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
       >
         {/* Section Image */}

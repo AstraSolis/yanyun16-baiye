@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const { parse: parseJsonc } = require('jsonc-parser')
 
 /**
  * 验证 content 目录中的数据文件
@@ -14,23 +15,44 @@ let hasErrors = false
 let hasWarnings = false
 
 /**
- * 验证 members.json 文件
+ * 解析配置文件（支持 JSON 和 JSONC）
+ */
+function parseConfigFile(baseName) {
+  const jsoncPath = path.join(process.cwd(), 'content', `${baseName}.jsonc`)
+  const jsonPath = path.join(process.cwd(), 'content', `${baseName}.json`)
+
+  if (fs.existsSync(jsoncPath)) {
+    const data = fs.readFileSync(jsoncPath, 'utf8')
+    return { data: parseJsonc(data), path: jsoncPath, format: 'jsonc' }
+  }
+
+  if (fs.existsSync(jsonPath)) {
+    const data = fs.readFileSync(jsonPath, 'utf8')
+    return { data: JSON.parse(data), path: jsonPath, format: 'json' }
+  }
+
+  return null
+}
+
+/**
+ * 验证 members 文件
  */
 function validateMembers() {
-  const membersPath = path.join(process.cwd(), 'content/members.json')
-  
-  if (!fs.existsSync(membersPath)) {
-    console.error('❌ 错误: content/members.json 文件不存在')
+  console.log('验证 content/members...')
+
+  const config = parseConfigFile('members')
+  if (!config) {
+    console.error('❌ 错误: content/members.json 或 content/members.jsonc 文件不存在')
     hasErrors = true
     return
   }
 
   let membersData
   try {
-    const membersContent = fs.readFileSync(membersPath, 'utf8')
-    membersData = JSON.parse(membersContent)
+    membersData = config.data
+    console.log(`✅ 成功解析 ${config.format.toUpperCase()} 文件: ${path.basename(config.path)}`)
   } catch (error) {
-    console.error('❌ 错误: content/members.json 不是有效的 JSON 文件')
+    console.error(`❌ 错误: ${path.basename(config.path)} 不是有效的 ${config.format.toUpperCase()} 文件`)
     console.error('   详情:', error.message)
     hasErrors = true
     return
@@ -109,23 +131,24 @@ function validateMembers() {
 }
 
 /**
- * 验证 siteconfig.json 文件
+ * 验证 siteconfig 文件
  */
 function validateSiteConfig() {
-  const configPath = path.join(process.cwd(), 'content/siteconfig.json')
-  
-  if (!fs.existsSync(configPath)) {
-    console.error('❌ 错误: content/siteconfig.json 文件不存在')
+  console.log('验证 content/siteconfig...')
+
+  const config = parseConfigFile('siteconfig')
+  if (!config) {
+    console.error('❌ 错误: content/siteconfig.json 或 content/siteconfig.jsonc 文件不存在')
     hasErrors = true
     return
   }
 
   let configData
   try {
-    const configContent = fs.readFileSync(configPath, 'utf8')
-    configData = JSON.parse(configContent)
+    configData = config.data
+    console.log(`✅ 成功解析 ${config.format.toUpperCase()} 文件: ${path.basename(config.path)}`)
   } catch (error) {
-    console.error('❌ 错误: content/siteconfig.json 不是有效的 JSON 文件')
+    console.error(`❌ 错误: ${path.basename(config.path)} 不是有效的 ${config.format.toUpperCase()} 文件`)
     console.error('   详情:', error.message)
     hasErrors = true
     return
@@ -189,10 +212,8 @@ function validateAssets() {
 }
 
 // 执行验证
-console.log('验证 content/members.json...')
 validateMembers()
-
-console.log('\n验证 content/siteconfig.json...')  
+console.log('')
 validateSiteConfig()
 
 console.log('\n验证占位资源...')

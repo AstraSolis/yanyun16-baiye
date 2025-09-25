@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import type { 
   PageConfig, 
   PageName, 
@@ -34,11 +34,11 @@ export function usePageConfig<T extends PageConfig>(
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const loadConfig = async () => {
+  const loadConfig = useCallback(async () => {
     try {
       setLoading(true)
       setError(null)
-      
+
       const config = await getFullPageConfigClient<T>(pageName)
       if (config) {
         setGlobalConfig(config.globalConfig)
@@ -56,11 +56,11 @@ export function usePageConfig<T extends PageConfig>(
     } finally {
       setLoading(false)
     }
-  }
+  }, [pageName])
 
   useEffect(() => {
     loadConfig()
-  }, [pageName])
+  }, [loadConfig, pageName])
 
   const refetch = async () => {
     await loadConfig()
@@ -139,9 +139,9 @@ export function validatePageConfig<T extends PageConfig>(
 }
 
 // 调试辅助函数
-export function debugPageConfig(pageName: PageName) {
+export function useDebugPageConfig(pageName: PageName) {
   const config = usePageConfig(pageName)
-  
+
   useEffect(() => {
     if (!config.loading) {
       console.group(`🔧 页面配置调试: ${pageName}`)
@@ -151,7 +151,14 @@ export function debugPageConfig(pageName: PageName) {
       console.log('加载状态:', { loading: config.loading, error: config.error })
       console.groupEnd()
     }
-  }, [config.loading, config.error])
+  }, [
+    config.loading,
+    config.error,
+    config.globalConfig,
+    config.pageConfig,
+    config.fullConfig,
+    pageName
+  ])
   
   return config
 }
