@@ -22,7 +22,7 @@ const staggerContainer = {
 }
 
 export default function PromotionPage() {
-  // TODO: replace with official data and update SOURCES.md
+  // 待替换：官方数据，并更新 SOURCES.md
   const highlights = [
     {
       icon: Users,
@@ -53,7 +53,7 @@ export default function PromotionPage() {
   return (
     <div className="min-h-screen">
       <TransparentNavigation />
-      {/* Hero Section */}
+      {/* 首页横幅部分 */}
       <section className="relative px-4 py-20 md:py-32 bg-linear-to-br from-primary/5 via-white to-secondary/5 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -65,7 +65,7 @@ export default function PromotionPage() {
               百业宣传
             </h1>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
-              {/* TODO: replace with official description and update SOURCES.md */}
+              {/* 待替换：官方描述，并更新 SOURCES.md */}
               了解燕云十六声百业的发展历程、团队文化与未来愿景
             </p>
             <Badge variant="secondary" className="text-base px-4 py-2">
@@ -75,10 +75,10 @@ export default function PromotionPage() {
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* 主要内容 */}
       <section className="px-4 py-16">
         <div className="max-w-6xl mx-auto">
-          {/* Overview Card */}
+          {/* 概览卡片 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -91,14 +91,14 @@ export default function PromotionPage() {
                   关于燕云十六声百业
                 </CardTitle>
                 <CardDescription className="text-lg max-w-3xl mx-auto">
-                  {/* TODO: replace with official information and update SOURCES.md */}
+                  {/* 待替换：官方信息，并更新 SOURCES.md */}
                   此部分内容待官方确认，请以官方公告为准。如需了解最新信息，请关注官方渠道。
                 </CardDescription>
               </CardHeader>
             </Card>
           </motion.div>
 
-          {/* Highlights Grid */}
+          {/* 亮点网格 */}
           <motion.div
             variants={staggerContainer}
             initial="initial"
@@ -127,7 +127,7 @@ export default function PromotionPage() {
             ))}
           </motion.div>
 
-          {/* Detailed Sections */}
+          {/* 详细部分 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -140,7 +140,7 @@ export default function PromotionPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-neutral-600 dark:text-neutral-300 text-base leading-relaxed">
-                  {/* TODO: replace with official information and update SOURCES.md */}
+                  {/* 待替换：官方信息，并更新 SOURCES.md */}
                   此部分内容待官方确认，具体的团队文化和价值观请以官方信息为准。建议定期关注官方公告以获取最新信息。
                 </p>
                 <Badge variant="secondary" className="mt-4">
@@ -155,7 +155,7 @@ export default function PromotionPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-neutral-600 dark:text-neutral-300 text-base leading-relaxed">
-                  {/* TODO: replace with official information and update SOURCES.md */}
+                  {/* 待替换：官方信息，并更新 SOURCES.md */}
                   此部分内容待官方确认，发展规划和未来愿景请以官方公告为准。如需了解详细信息，请通过官方渠道获取。
                 </p>
                 <Badge variant="secondary" className="mt-4">

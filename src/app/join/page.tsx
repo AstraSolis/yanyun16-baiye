@@ -43,10 +43,10 @@ export default function JoinPage() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // TODO: Implement actual form submission
-    // This could be a webhook, API endpoint, or email service
+    // 待实现：实际的表单提交功能
+    // 可以使用 webhook、API 接口或邮件服务
     try {
-      await new Promise(resolve => setTimeout(resolve, 2000)) // Simulate submission
+      await new Promise(resolve => setTimeout(resolve, 2000)) // 模拟表单提交
       setSubmitStatus('success')
       setFormData({ name: '', email: '', reason: '', experience: '', contact: '' })
     } catch (error) {
@@ -66,7 +66,7 @@ export default function JoinPage() {
   return (
     <div className="min-h-screen">
       <TransparentNavigation />
-      {/* Hero Section */}
+      {/* 首页横幅部分 */}
       <section className="relative px-4 py-20 md:py-32 bg-linear-to-br from-teal-50 via-white to-primary/5 dark:from-neutral-900 dark:via-neutral-800 dark:to-neutral-900">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -78,7 +78,7 @@ export default function JoinPage() {
               加入百业
             </h1>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
-              {/* TODO: replace with official recruitment information and update SOURCES.md */}
+              {/* 待替换：官方招募信息，并更新 SOURCES.md */}
               欢迎有志之士申请加入燕云十六声百业，共同创造精彩未来
             </p>
             <Badge variant="secondary" className="text-base px-4 py-2">
@@ -88,7 +88,7 @@ export default function JoinPage() {
         </div>
       </section>
 
-      {/* Important Notice */}
+      {/* 重要提醒 */}
       <section className="px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -107,11 +107,11 @@ export default function JoinPage() {
         </div>
       </section>
 
-      {/* Main Content */}
+      {/* 主要内容 */}
       <section className="px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Application Form */}
+            {/* 申请表单 */}
             <div className="lg:col-span-2">
               <motion.div variants={fadeInUp} initial="initial" animate="animate">
                 <Card>
@@ -126,7 +126,7 @@ export default function JoinPage() {
                   </CardHeader>
                   <CardContent>
                     <form onSubmit={handleSubmit} className="space-y-6">
-                      {/* Name Field */}
+                      {/* 姓名字段 */}
                       <div>
                         <Label htmlFor="name" className="flex items-center gap-2">
                           <User className="h-4 w-4" />
@@ -143,7 +143,7 @@ export default function JoinPage() {
                         />
                       </div>
 
-                      {/* Email Field */}
+                      {/* 邮箱字段 */}
                       <div>
                         <Label htmlFor="email" className="flex items-center gap-2">
                           <Mail className="h-4 w-4" />
@@ -160,7 +160,7 @@ export default function JoinPage() {
                         />
                       </div>
 
-                      {/* Contact Info */}
+                      {/* 联系方式 */}
                       <div>
                         <Label htmlFor="contact" className="flex items-center gap-2">
                           <FileText className="h-4 w-4" />
@@ -176,7 +176,7 @@ export default function JoinPage() {
                         />
                       </div>
 
-                      {/* Application Reason */}
+                      {/* 申请理由 */}
                       <div>
                         <Label htmlFor="reason" className="flex items-center gap-2">
                           <FileText className="h-4 w-4" />
@@ -193,7 +193,7 @@ export default function JoinPage() {
                         />
                       </div>
 
-                      {/* Experience */}
+                      {/* 相关经验 */}
                       <div>
                         <Label htmlFor="experience" className="flex items-center gap-2">
                           <FileText className="h-4 w-4" />
@@ -209,7 +209,7 @@ export default function JoinPage() {
                         />
                       </div>
 
-                      {/* Submit Status Messages */}
+                      {/* 提交状态信息 */}
                       {submitStatus === 'success' && (
                         <motion.div
                           initial={{ opacity: 0, y: 10 }}
@@ -238,7 +238,7 @@ export default function JoinPage() {
                         </motion.div>
                       )}
 
-                      {/* Submit Button */}
+                      {/* 提交按钮 */}
                       <Button
                         type="submit"
                         disabled={isSubmitting || !formData.name || !formData.email || !formData.reason}
@@ -263,7 +263,7 @@ export default function JoinPage() {
               </motion.div>
             </div>
 
-            {/* Sidebar Information */}
+            {/* 侧边栏信息 */}
             <div className="space-y-6">
               <motion.div
                 variants={fadeInUp}
@@ -313,7 +313,7 @@ export default function JoinPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3 text-sm">
-                      {/* TODO: replace with official contact information and update SOURCES.md */}
+                      {/* 待替换：官方联系信息，并更新 SOURCES.md */}
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <ExternalLink className="h-4 w-4" />
                         <span>官方QQ群: 待添加</span>

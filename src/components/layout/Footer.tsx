@@ -40,15 +40,15 @@ export function Footer() {
   return (
     <footer className="bg-muted/10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* Main Footer Content */}
+        {/* 主要页脚内容 */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand Section */}
+          {/* 品牌部分 */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground">
               燕云十六声 · 百业
             </h3>
             <p className="text-sm text-muted-foreground max-w-md">
-              {/* TODO: replace with official description and update SOURCES.md */}
+              {/* 待替换：官方描述，并更新 SOURCES.md */}
               这是一个数据驱动的静态站点，用于展示燕云十六声百业的相关信息。
               所有内容均以官方公告为准。
             </p>
@@ -65,7 +65,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Navigation Links */}
+          {/* 导航链接 */}
           {footerLinks.map((section) => (
             <div key={section.title} className="space-y-4">
               <h4 className="text-sm font-medium text-foreground">
@@ -95,7 +95,7 @@ export function Footer() {
 
         <Separator className="my-8" />
 
-        {/* Bottom Footer */}
+        {/* 底部页脚 */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-sm text-muted-foreground">
             © {currentYear} 燕云十六声 · 百业. 
@@ -119,7 +119,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Admin Notice */}
+        {/* 管理员提醒 */}
         <div className="mt-8 p-4 bg-primary/5 border border-primary/20 rounded-lg backdrop-blur-xs">
           <div className="flex items-start space-x-2">
             <FileText className="h-4 w-4 text-primary mt-0.5 shrink-0" />

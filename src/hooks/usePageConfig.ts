@@ -139,11 +139,11 @@ export function validatePageConfig<T extends PageConfig>(
 }
 
 // 调试辅助函数
-export function useDebugPageConfig(pageName: PageName) {
-  const config = usePageConfig(pageName)
+export function useDebugPageConfig(pageName: PageName | null) {
+  const config = usePageConfig(pageName || 'home')
 
   useEffect(() => {
-    if (!config.loading) {
+    if (pageName && !config.loading) {
       console.group(`🔧 页面配置调试: ${pageName}`)
       console.log('全局配置:', config.globalConfig)
       console.log('页面配置:', config.pageConfig)

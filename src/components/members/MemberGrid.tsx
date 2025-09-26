@@ -23,14 +23,14 @@ export function MemberGrid({
   const gridRef = useRef<HTMLDivElement>(null)
   const selectedButtonRef = useRef<HTMLButtonElement>(null)
 
-  // Focus management - ensure selected member button is focused when selection changes
+  // 焦点管理 - 确保选中的成员按钮在选择变更时获得焦点
   useEffect(() => {
     if (selectedButtonRef.current) {
       selectedButtonRef.current.focus()
     }
   }, [selectedMemberId])
 
-  // Keyboard event handler implementing roving tabindex pattern
+  // 键盘事件处理器，实现流动 tabindex 模式
   const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
     switch (event.key) {
       case 'ArrowUp':
@@ -58,12 +58,12 @@ export function MemberGrid({
       case 'Enter':
       case ' ':
         event.preventDefault()
-        // Enter/Space is handled by the button click
+        // 回车/空格键由按钮点击处理
         break
     }
   }, [onKeyboardNavigation, onMemberSelect, members])
 
-  // Touch/swipe support for mobile
+  // 移动端触摸/滑动支持
   const handleTouchStart = useRef<{ x: number; y: number } | null>(null)
   
   const onTouchStart = (event: React.TouchEvent) => {
@@ -78,7 +78,7 @@ export function MemberGrid({
     const diffX = handleTouchStart.current.x - touch.clientX
     const diffY = handleTouchStart.current.y - touch.clientY
 
-    // Only handle horizontal swipes
+    // 仅处理水平滑动
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
       if (diffX > 0) {
         onKeyboardNavigation('next')
@@ -193,7 +193,7 @@ export function MemberGrid({
               )}
             </div>
 
-            {/* Hidden description for screen readers */}
+            {/* 屏幕阅读器的隐藏描述 */}
             <div
               id={`member-${member.id}-description`}
               className="sr-only"
@@ -205,7 +205,7 @@ export function MemberGrid({
         )
       })}
       
-      {/* Instructions for screen readers */}
+      {/* 屏幕阅读器的使用说明 */}
       <div className="sr-only" aria-live="polite" aria-atomic="true">
         共 {members.length} 名成员。使用方向键切换选择，回车键确认选择。
         当前选中: {members.find(m => m.id === selectedMemberId)?.displayName}

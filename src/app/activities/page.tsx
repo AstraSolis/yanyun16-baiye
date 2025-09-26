@@ -25,7 +25,7 @@ const staggerContainer = {
 }
 
 export default function ActivitiesPage() {
-  // TODO: replace with official activities data and update SOURCES.md
+  // 待替换：官方活动数据，并更新 SOURCES.md
   const activityCategories = [
     {
       icon: Gift,
@@ -81,7 +81,7 @@ export default function ActivitiesPage() {
     <SubduedShaderBackground variant="primary">
       <div className="min-h-screen">
         <TransparentNavigation />
-        {/* Hero Section */}
+        {/* 首页横幅部分 */}
         <section className="relative px-4 py-20 md:py-32 overflow-hidden">
           {/* 装饰性背景元素 */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl opacity-60" />
@@ -106,7 +106,7 @@ export default function ActivitiesPage() {
                 百业活动
               </h1>
               <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                {/* TODO: replace with official description and update SOURCES.md */}
+                {/* 待替换：官方描述，并更新 SOURCES.md */}
                 了解燕云十六声百业成员的专属福利与待遇，共享团队发展成果
               </p>
               <motion.div
@@ -121,7 +121,7 @@ export default function ActivitiesPage() {
           </div>
       </section>
 
-      {/* Important Notice */}
+      {/* 重要提醒 */}
       <section className="px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -140,7 +140,7 @@ export default function ActivitiesPage() {
         </div>
       </section>
 
-      {/* Benefits Grid */}
+      {/* 福利网格 */}
       <section className="px-4 py-16">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -214,7 +214,7 @@ export default function ActivitiesPage() {
             ))}
           </motion.div>
 
-          {/* Additional Information */}
+          {/* 补充信息 */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -228,7 +228,7 @@ export default function ActivitiesPage() {
               <EnhancedCardContent>
                 <div className="space-y-4">
                   <p className="text-neutral-600 dark:text-neutral-300">
-                    {/* TODO: replace with official process and update SOURCES.md */}
+                    {/* 待替换：官方流程，并更新 SOURCES.md */}
                     具体的福利申请流程待官方确认，包括但不限于：
                   </p>
                   <ul className="space-y-2 text-sm">
@@ -290,7 +290,7 @@ export default function ActivitiesPage() {
               </EnhancedCardContent>
             </EnhancedCard>
 
-            {/* Final Disclaimer */}
+            {/* 最终免责声明 */}
             <EnhancedCard variant="glass" className="border-amber-200/50 bg-amber-50/30 dark:bg-amber-900/20 backdrop-blur-md">
               <EnhancedCardContent className="pt-6">
                 <div className="flex items-start gap-3">

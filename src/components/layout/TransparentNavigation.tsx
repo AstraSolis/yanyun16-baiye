@@ -32,7 +32,7 @@ export function TransparentNavigation() {
   return (
     <header className="relative z-20 p-6">
       <div className="flex items-center justify-between">
-        {/* Logo / Brand */}
+        {/* 标志 / 品牌 */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-2">
             <motion.div
@@ -51,7 +51,7 @@ export function TransparentNavigation() {
           </Link>
         </div>
 
-        {/* Desktop Navigation - 居中 */}
+        {/* 桌面导航 - 居中 */}
         <nav className="hidden md:flex items-center space-x-2 absolute left-1/2 transform -translate-x-1/2">
           {navigationItems.map((item) => (
             <Link key={item.href} href={item.href}>
@@ -69,7 +69,7 @@ export function TransparentNavigation() {
 
         {/* 右侧空间 - 移动端菜单 */}
         <div className="flex items-center justify-end w-[170px]">
-          {/* Mobile Navigation */}
+          {/* 移动端导航 */}
           <div className="md:hidden">
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
@@ -84,7 +84,7 @@ export function TransparentNavigation() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background">
                 <div className="flex flex-col h-full">
-                  {/* Header */}
+                  {/* 标题 */}
                   <div className="flex items-center justify-between pb-4 border-b">
                     <h2 className="text-lg font-normal instrument">导航菜单</h2>
                     <Button
@@ -97,7 +97,7 @@ export function TransparentNavigation() {
                     </Button>
                   </div>
 
-                  {/* Navigation Items */}
+                  {/* 导航项目 */}
                   <div className="flex-1 py-6">
                     <nav className="space-y-2">
                       {navigationItems.map((item) => (
@@ -120,7 +120,7 @@ export function TransparentNavigation() {
                     </nav>
                   </div>
 
-                  {/* Footer */}
+                  {/* 页脚 */}
                   <div className="pt-4 border-t">
                     <div className="text-center">
                       <Image

@@ -11,13 +11,13 @@
   /* 更新玻璃拟态效果以匹配黑色主题 */
   @apply backdrop-blur-xs bg-white/5 border border-white/20;
 
-  /* Reduced motion fallbacks */
+  /* 动画减少时的回退方案 */
 }
 
 @utility card-hover {
   @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
 
-  /* Reduced motion fallbacks */
+  /* 动画减少时的回退方案 */
   @media (prefers-reduced-motion: reduce) {
     @apply hover:scale-100 transition-none;
   }
@@ -27,13 +27,13 @@
   /* 添加shader-showcase风格的按钮效果 */
   @apply px-8 py-3 rounded-full bg-white text-black font-normal text-xs transition-all duration-200 hover:bg-white/90 cursor-pointer;
 
-  /* Reduced motion fallbacks */
+  /* 动画减少时的回退方案 */
 }
 
 @utility btn-secondary {
   @apply px-8 py-3 rounded-full bg-transparent border border-white/30 text-white font-normal text-xs transition-all duration-200 hover:bg-white/10 hover:border-white/50 cursor-pointer;
 
-  /* Reduced motion fallbacks */
+  /* 动画减少时的回退方案 */
 }
 
 @layer base {
@@ -101,7 +101,7 @@
     font-family: var(--font-figtree);
   }
   
-  /* Focus styles for accessibility */
+  /* 焦点样式，用于无障碍访问 */
   *:focus {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
@@ -118,7 +118,7 @@
 }
 
 @layer utilities {
-  /* Instrument Serif字体类 */
+  /* Instrument Serif 字体类 */
   .instrument {
     font-family: var(--font-instrument-serif);
   }
@@ -135,7 +135,7 @@
   }
 }
 
-/* Custom scrollbar */
+/* 自定义滚动条 */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -188,7 +188,7 @@
   }
 }
 
-/* Portfolio-style fade up animation */
+/* 作品集风格的向上淡入动画 */
 @keyframes fadeInUp {
   from {
     opacity: 0;

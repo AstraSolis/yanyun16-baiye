@@ -41,7 +41,7 @@ export function MemberPreview({ member }: MemberPreviewProps) {
       className="w-full"
     >
       <Card className="overflow-hidden">
-        {/* Large Image Section */}
+        {/* 大图片部分 */}
         <div className="relative h-64 md:h-80 bg-linear-to-br from-primary/5 to-secondary/5">
           {member.largeImage ? (
             <motion.div
@@ -76,7 +76,7 @@ export function MemberPreview({ member }: MemberPreviewProps) {
             </motion.div>
           )}
 
-          {/* Overlay with basic info */}
+          {/* 覆盖层显示基本信息 */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -94,7 +94,7 @@ export function MemberPreview({ member }: MemberPreviewProps) {
           </motion.div>
         </div>
 
-        {/* Content Section */}
+        {/* 内容部分 */}
         <motion.div variants={contentVariants}>
           <CardHeader>
             <div className="flex items-center gap-2 mb-2">
@@ -102,7 +102,7 @@ export function MemberPreview({ member }: MemberPreviewProps) {
               <CardTitle className="text-xl">成员信息</CardTitle>
             </div>
             
-            {/* Tags */}
+            {/* 标签 */}
             {member.tags && member.tags.length > 0 && (
               <div className="flex items-center gap-2 mb-4">
                 <Tag className="h-4 w-4 text-muted-foreground" />
@@ -122,7 +122,7 @@ export function MemberPreview({ member }: MemberPreviewProps) {
           </CardHeader>
 
           <CardContent>
-            {/* Bio Section */}
+            {/* 个人简介部分 */}
             {member.bio ? (
               <div className="mb-6">
                 <h3 className="font-semibold text-lg mb-3 flex items-center gap-2">
@@ -141,9 +141,9 @@ export function MemberPreview({ member }: MemberPreviewProps) {
               </div>
             )}
 
-            {/* Additional Information */}
+            {/* 附加信息 */}
             <div className="space-y-4">
-              {/* Join Date (if available) */}
+              {/* 加入日期（如有） */}
               {member.joinDate && (
                 <div className="flex items-center gap-3 text-sm">
                   <Calendar className="h-4 w-4 text-primary shrink-0" />
@@ -152,7 +152,7 @@ export function MemberPreview({ member }: MemberPreviewProps) {
                 </div>
               )}
 
-              {/* Location (if available) */}
+              {/* 位置（如有） */}
               {member.location && (
                 <div className="flex items-center gap-3 text-sm">
                   <MapPin className="h-4 w-4 text-primary shrink-0" />
@@ -162,7 +162,7 @@ export function MemberPreview({ member }: MemberPreviewProps) {
               )}
             </div>
 
-            {/* Placeholder for missing data */}
+            {/* 缺失数据的占位符 */}
             {!member.bio && !member.joinDate && !member.location && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -177,7 +177,7 @@ export function MemberPreview({ member }: MemberPreviewProps) {
               </motion.div>
             )}
 
-            {/* Sources indicator for admin */}
+            {/* 管理员的数据来源指示器 */}
             {member.sources && member.sources.length > 0 ? (
               <div className="mt-4 pt-4 border-t border-border">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">

@@ -16,9 +16,7 @@ export function ConfigExample() {
   const { metadata } = usePageMetadata('home')
   
   // 开发环境下启用调试
-  if (process.env.NODE_ENV === 'development') {
-    useDebugPageConfig('home')
-  }
+  useDebugPageConfig(process.env.NODE_ENV === 'development' ? 'home' : null)
 
   if (loading) {
     return (

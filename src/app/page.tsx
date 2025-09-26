@@ -76,7 +76,7 @@ export default function HomePage() {
         activeSection === "hero" ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}>
         <div className="flex flex-col gap-4">
-          {sections.slice(1).map((section) => ( // 跳过hero section
+          {sections.slice(1).map((section) => ( // 跳过首页主视觉部分
             <button
               key={section.id}
               onClick={() => document.getElementById(section.id)?.scrollIntoView({ behavior: "smooth" })}
@@ -91,7 +91,7 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Hero Section - 保持原有设计 */}
+      {/* 首页横幅部分 - 保持原有设计 */}
       <section 
         id="hero"
         ref={(el) => { sectionsRef.current[0] = el }}
@@ -106,7 +106,7 @@ export default function HomePage() {
         >
           <ShaderBackground>
             <Navigation />
-            {/* Hero Content - 左下角定位，类似shader-showcase */}
+            {/* 主视觉内容 - 左下角定位，类似shader-showcase */}
             <main 
               className="absolute bottom-8 left-8 z-20 max-w-lg opacity-0"
               style={{
@@ -122,20 +122,20 @@ export default function HomePage() {
                   <span className="text-white/90 text-xs font-light relative z-10">✨ 燕云十六声官方{siteTitle}组织</span>
                 </div>
 
-                {/* Main Heading */}
+                {/* 主标题 */}
                 <h1 className="text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-4">
                   <span className="font-medium italic instrument">汇聚</span> 天下英才
                   <br />
                   <span className="font-light tracking-tight text-white">共创辉煌未来</span>
                 </h1>
 
-                {/* Description */}
+                {/* 描述 */}
                 <p className="text-xs font-light text-white/70 mb-4 leading-relaxed">
                   {siteDescription} - 致力于为成员提供专业的游戏指导、
                   丰富的福利待遇和良好的社交环境，共同打造顶级的游戏体验。
                 </p>
 
-                {/* Buttons */}
+                {/* 按钮 */}
                 <div className="flex items-center gap-4 flex-wrap">
                   <Link href="/members">
                     <button className="btn-secondary">
@@ -154,13 +154,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Promotion Section */}
+      {/* 宣传部分 */}
       <section
         id="promotion"
         ref={(el) => { sectionsRef.current[1] = el }}
         className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
       >
-        {/* Section Image */}
+        {/* 部分图片 */}
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
           <div className="flex justify-center">
             <div className="relative rounded-2xl overflow-hidden">
@@ -225,13 +225,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Activities Section */}
+      {/* 活动部分 */}
       <section
         id="activities"
         ref={(el) => { sectionsRef.current[2] = el }}
         className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
       >
-        {/* Section Image */}
+        {/* 部分图片 */}
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
           <div className="flex justify-center">
             <div className="relative rounded-2xl overflow-hidden">
@@ -295,13 +295,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Members Section */}
+      {/* 成员部分 */}
       <section
         id="members"
         ref={(el) => { sectionsRef.current[3] = el }}
         className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
       >
-        {/* Section Image */}
+        {/* 部分图片 */}
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
           <div className="flex justify-center">
             <div className="relative rounded-2xl overflow-hidden">
@@ -365,13 +365,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Join Section */}
+      {/* 加入部分 */}
       <section
         id="join"
         ref={(el) => { sectionsRef.current[4] = el }}
         className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
       >
-        {/* Section Image */}
+        {/* 部分图片 */}
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
           <div className="flex justify-center">
             <div className="relative rounded-2xl overflow-hidden">
@@ -436,7 +436,7 @@ export default function HomePage() {
       </section>
 
 
-      {/* Footer */}
+      {/* 页脚 */}
       <footer className="py-12 sm:py-16 border-t border-border">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16">
           <div className="text-center space-y-2">
