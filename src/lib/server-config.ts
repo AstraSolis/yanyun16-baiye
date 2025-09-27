@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import { parse as parseJsonc } from 'jsonc-parser'
+import yaml from 'js-yaml'
 import type { Member } from '@/types/member'
 import type { 
   PageConfig, 
@@ -62,19 +62,20 @@ export interface SiteConfig {
 // 服务端专用：读取站点配置
 export async function getSiteConfigServer(): Promise<SiteConfig> {
   try {
-    // 首先尝试读取JSONC格式
-    let configPath = path.join(process.cwd(), 'content', 'siteconfig.jsonc')
-    let configData: string
-    
+    let configPath = path.join(process.cwd(), 'content', 'siteconfig.yaml')
+
     if (fs.existsSync(configPath)) {
-      configData = fs.readFileSync(configPath, 'utf8')
-      return parseJsonc(configData) as SiteConfig
+      const configData = fs.readFileSync(configPath, 'utf8')
+      return yaml.load(configData) as SiteConfig
     }
-    
-    // 如果JSONC不存在，回退到JSON格式
-    configPath = path.join(process.cwd(), 'content', 'siteconfig.json')
-    configData = fs.readFileSync(configPath, 'utf8')
-    return JSON.parse(configData) as SiteConfig
+
+    configPath = path.join(process.cwd(), 'content', 'siteconfig.yml')
+    if (fs.existsSync(configPath)) {
+      const configData = fs.readFileSync(configPath, 'utf8')
+      return yaml.load(configData) as SiteConfig
+    }
+
+    throw new Error('Site config file not found')
   } catch (error) {
     console.error('Failed to load site config:', error)
     // 返回默认配置
@@ -129,19 +130,20 @@ export async function getSiteConfigServer(): Promise<SiteConfig> {
 // 服务端专用：读取成员数据
 export async function getMembersServer(): Promise<Member[]> {
   try {
-    // 首先尝试读取JSONC格式
-    let membersPath = path.join(process.cwd(), 'content', 'members.jsonc')
-    let membersData: string
-    
+    let membersPath = path.join(process.cwd(), 'content', 'members.yaml')
+
     if (fs.existsSync(membersPath)) {
-      membersData = fs.readFileSync(membersPath, 'utf8')
-      return parseJsonc(membersData) as Member[]
+      const membersData = fs.readFileSync(membersPath, 'utf8')
+      return yaml.load(membersData) as Member[]
     }
-    
-    // 如果JSONC不存在，回退到JSON格式
-    membersPath = path.join(process.cwd(), 'content', 'members.json')
-    membersData = fs.readFileSync(membersPath, 'utf8')
-    return JSON.parse(membersData) as Member[]
+
+    membersPath = path.join(process.cwd(), 'content', 'members.yml')
+    if (fs.existsSync(membersPath)) {
+      const membersData = fs.readFileSync(membersPath, 'utf8')
+      return yaml.load(membersData) as Member[]
+    }
+
+    throw new Error('Members file not found')
   } catch (error) {
     console.error('Failed to load members data:', error)
     return []
@@ -153,22 +155,19 @@ export async function getPageConfigServer<T extends PageConfig>(
   pageName: PageName
 ): Promise<T | null> {
   try {
-    // 首先尝试读取JSONC格式
-    let configPath = path.join(process.cwd(), 'content', `${pageName}-page.jsonc`)
-    let configData: string
-    
+    let configPath = path.join(process.cwd(), 'content', `${pageName}-page.yaml`)
+
     if (fs.existsSync(configPath)) {
-      configData = fs.readFileSync(configPath, 'utf8')
-      return parseJsonc(configData) as T
+      const configData = fs.readFileSync(configPath, 'utf8')
+      return yaml.load(configData) as T
     }
-    
-    // 如果JSONC不存在，尝试JSON格式
-    configPath = path.join(process.cwd(), 'content', `${pageName}-page.json`)
+
+    configPath = path.join(process.cwd(), 'content', `${pageName}-page.yml`)
     if (fs.existsSync(configPath)) {
-      configData = fs.readFileSync(configPath, 'utf8')
-      return JSON.parse(configData) as T
+      const configData = fs.readFileSync(configPath, 'utf8')
+      return yaml.load(configData) as T
     }
-    
+
     return null
   } catch (error) {
     console.error(`Failed to load page config for ${pageName}:`, error)

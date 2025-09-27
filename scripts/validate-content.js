@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const { parse: parseJsonc } = require('jsonc-parser')
+const yaml = require('js-yaml')
 
 /**
  * 验证 content 目录中的数据文件
@@ -15,20 +15,20 @@ let hasErrors = false
 let hasWarnings = false
 
 /**
- * 解析配置文件（支持 JSON 和 JSONC）
+ * 解析配置文件（支持 YAML）
  */
 function parseConfigFile(baseName) {
-  const jsoncPath = path.join(process.cwd(), 'content', `${baseName}.jsonc`)
-  const jsonPath = path.join(process.cwd(), 'content', `${baseName}.json`)
+  const yamlPath = path.join(process.cwd(), 'content', `${baseName}.yaml`)
+  const ymlPath = path.join(process.cwd(), 'content', `${baseName}.yml`)
 
-  if (fs.existsSync(jsoncPath)) {
-    const data = fs.readFileSync(jsoncPath, 'utf8')
-    return { data: parseJsonc(data), path: jsoncPath, format: 'jsonc' }
+  if (fs.existsSync(yamlPath)) {
+    const data = fs.readFileSync(yamlPath, 'utf8')
+    return { data: yaml.load(data), path: yamlPath, format: 'yaml' }
   }
 
-  if (fs.existsSync(jsonPath)) {
-    const data = fs.readFileSync(jsonPath, 'utf8')
-    return { data: JSON.parse(data), path: jsonPath, format: 'json' }
+  if (fs.existsSync(ymlPath)) {
+    const data = fs.readFileSync(ymlPath, 'utf8')
+    return { data: yaml.load(data), path: ymlPath, format: 'yaml' }
   }
 
   return null
@@ -42,7 +42,7 @@ function validateMembers() {
 
   const config = parseConfigFile('members')
   if (!config) {
-    console.error('❌ 错误: content/members.json 或 content/members.jsonc 文件不存在')
+    console.error('❌ 错误: content/members.yaml 或 content/members.yml 文件不存在')
     hasErrors = true
     return
   }
@@ -59,7 +59,7 @@ function validateMembers() {
   }
 
   if (!Array.isArray(membersData)) {
-    console.error('❌ 错误: members.json 应该是一个数组')
+    console.error('❌ 错误: members.yaml 应该是一个数组')
     hasErrors = true
     return
   }
@@ -126,7 +126,7 @@ function validateMembers() {
   })
 
   if (!hasErrors) {
-    console.log('✅ members.json 基本格式验证通过')
+    console.log('✅ members.yaml 基本格式验证通过')
   }
 }
 
@@ -138,7 +138,7 @@ function validateSiteConfig() {
 
   const config = parseConfigFile('siteconfig')
   if (!config) {
-    console.error('❌ 错误: content/siteconfig.json 或 content/siteconfig.jsonc 文件不存在')
+    console.error('❌ 错误: content/siteconfig.yaml 或 content/siteconfig.yml 文件不存在')
     hasErrors = true
     return
   }
@@ -160,7 +160,7 @@ function validateSiteConfig() {
   const requiredConfigFields = ['siteTitle', 'baseUrl', 'defaultAvatar']
   for (const field of requiredConfigFields) {
     if (!configData[field]) {
-      console.error(`❌ 错误: siteconfig.json 缺少必需字段 "${field}"`)
+      console.error(`❌ 错误: siteconfig.yaml 缺少必需字段 "${field}"`)
       hasErrors = true
     }
   }
@@ -179,7 +179,7 @@ function validateSiteConfig() {
   }
 
   if (!hasErrors) {
-    console.log('✅ siteconfig.json 基本格式验证通过')
+    console.log('✅ siteconfig.yaml 基本格式验证通过')
   }
 }
 

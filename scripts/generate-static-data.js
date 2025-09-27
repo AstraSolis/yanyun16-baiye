@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const { parse: parseJsonc } = require('jsonc-parser')
+const yaml = require('js-yaml')
 
 // 创建public/data目录
 const publicDataDir = path.join(process.cwd(), 'public', 'data')
@@ -8,43 +8,43 @@ if (!fs.existsSync(publicDataDir)) {
   fs.mkdirSync(publicDataDir, { recursive: true })
 }
 
-// 解析配置文件的函数（支持JSON和JSONC）
+// 解析配置文件的函数（支持YAML）
 function parseConfigFile(baseName) {
-  const jsoncPath = path.join(process.cwd(), 'content', `${baseName}.jsonc`)
-  const jsonPath = path.join(process.cwd(), 'content', `${baseName}.json`)
-  
-  if (fs.existsSync(jsoncPath)) {
-    const data = fs.readFileSync(jsoncPath, 'utf8')
-    console.log(`📖 读取 ${baseName}.jsonc (支持注释)`)
-    return parseJsonc(data)
+  const yamlPath = path.join(process.cwd(), 'content', `${baseName}.yaml`)
+  const ymlPath = path.join(process.cwd(), 'content', `${baseName}.yml`)
+
+  if (fs.existsSync(yamlPath)) {
+    const data = fs.readFileSync(yamlPath, 'utf8')
+    console.log(`📖 读取 ${baseName}.yaml`)
+    return yaml.load(data)
   }
-  
-  if (fs.existsSync(jsonPath)) {
-    const data = fs.readFileSync(jsonPath, 'utf8')
-    console.log(`📖 读取 ${baseName}.json`)
-    return JSON.parse(data)
+
+  if (fs.existsSync(ymlPath)) {
+    const data = fs.readFileSync(ymlPath, 'utf8')
+    console.log(`📖 读取 ${baseName}.yml`)
+    return yaml.load(data)
   }
-  
-  return null // 如果文件不存在则返回null
+
+  return null
 }
 
 // 解析页面配置文件的函数
 function parsePageConfigFile(pageName) {
-  const jsoncPath = path.join(process.cwd(), 'content', `${pageName}-page.jsonc`)
-  const jsonPath = path.join(process.cwd(), 'content', `${pageName}-page.json`)
-  
-  if (fs.existsSync(jsoncPath)) {
-    const data = fs.readFileSync(jsoncPath, 'utf8')
-    console.log(`📖 读取页面配置 ${pageName}-page.jsonc`)
-    return parseJsonc(data)
+  const yamlPath = path.join(process.cwd(), 'content', `${pageName}-page.yaml`)
+  const ymlPath = path.join(process.cwd(), 'content', `${pageName}-page.yml`)
+
+  if (fs.existsSync(yamlPath)) {
+    const data = fs.readFileSync(yamlPath, 'utf8')
+    console.log(`📖 读取页面配置 ${pageName}-page.yaml`)
+    return yaml.load(data)
   }
-  
-  if (fs.existsSync(jsonPath)) {
-    const data = fs.readFileSync(jsonPath, 'utf8')
-    console.log(`📖 读取页面配置 ${pageName}-page.json`)
-    return JSON.parse(data)
+
+  if (fs.existsSync(ymlPath)) {
+    const data = fs.readFileSync(ymlPath, 'utf8')
+    console.log(`📖 读取页面配置 ${pageName}-page.yml`)
+    return yaml.load(data)
   }
-  
+
   console.log(`⚠️  页面配置 ${pageName}-page 不存在，跳过`)
   return null
 }
@@ -59,10 +59,10 @@ try {
   const members = parseConfigFile('members')
   
   if (!siteConfig) {
-    throw new Error('找不到 siteconfig.json 或 siteconfig.jsonc 文件')
+    throw new Error('找不到 siteconfig.yaml 或 siteconfig.yml 文件')
   }
   if (!members) {
-    throw new Error('找不到 members.json 或 members.jsonc 文件')
+    throw new Error('找不到 members.yaml 或 members.yml 文件')
   }
   
   // 解析页面配置文件
@@ -111,8 +111,6 @@ try {
     }
   }
   console.log('')
-  console.log('💡 提示: 现在你可以在 .jsonc 文件中使用注释了！')
-  console.log('💡 页面配置文件支持独立的内容和显示设置')
 } catch (error) {
   console.error('❌ 生成静态数据文件失败:', error.message)
   process.exit(1)

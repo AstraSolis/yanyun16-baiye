@@ -1,0 +1,134 @@
+# 加入页面配置文件
+pageInfo:
+  title: 加入百业  # 页面标题
+  subtitle: 成为团队的一员  # 副标题
+  description: 欢迎有志之士申请加入燕云十六声百业，共同创造精彩未来  # 页面描述
+  keywords:  # SEO关键词
+    - 加入百业
+    - 团队招募
+    - 申请加入
+    - 成员申请
+  lastUpdated: "2024-09-21"
+
+# 页面内容配置
+content:
+  hero:
+    title: 加入百业
+    description: 欢迎有志之士申请加入燕云十六声百业，共同创造精彩未来
+    badge: 申请流程以官方公告为准
+
+  # 申请表单配置
+  applicationForm:
+    title: 申请表单
+    subtitle: 请填写以下信息，我们将尽快审核您的申请
+    icon: UserPlus
+
+    fields:
+      - id: name
+        label: 姓名 / 昵称
+        type: text
+        required: true
+        placeholder: 请输入您的姓名或常用昵称
+        icon: User
+
+      - id: email
+        label: 邮箱地址
+        type: email
+        required: true
+        placeholder: your.email@example.com
+        icon: Mail
+
+      - id: contact
+        label: 联系方式
+        type: text
+        required: false
+        placeholder: QQ、微信、电话等（可选）
+        icon: FileText
+
+      - id: reason
+        label: 申请理由
+        type: textarea
+        required: true
+        placeholder: 请简述您申请加入百业的原因和期望...
+        rows: 4
+        icon: FileText
+
+      - id: experience
+        label: 相关经验
+        type: textarea
+        required: false
+        placeholder: 请介绍您的相关经验、技能或特长（可选）...
+        rows: 4
+        icon: FileText
+
+    submitButton:
+      text: 提交申请
+      loadingText: 提交中...
+      icon: Send
+
+    messages:
+      success:
+        title: 申请提交成功！
+        content: 我们将尽快审核您的申请并与您联系。
+        icon: CheckCircle
+      error:
+        title: 申请提交失败
+        content: 请检查网络连接后重试。如持续出现问题，请通过其他方式联系我们。
+        icon: AlertTriangle
+
+  # 侧栏信息配置
+  sidebar:
+    - title: 申请须知
+      type: requirements
+      items:
+        - 请如实填写个人信息
+        - 保持邮箱畅通，我们将通过邮件联系
+        - 审核周期通常为 3-7 个工作日
+        - 如有疑问可通过官方渠道咨询
+      badge: 待官方确认
+
+    - title: 其他联系方式
+      type: contact
+      items:
+        - label: 官方QQ群
+          value: 待添加
+          icon: ExternalLink
+        - label: 官方微信群
+          value: 待添加
+          icon: ExternalLink
+        - label: 官方邮箱
+          value: 待添加
+          icon: Mail
+      badge: 以官方公告为准
+
+    - title: 配置提醒
+      type: notice
+      content: 此申请表单为示例实现。管理员需要在 content/siteconfig.json 中配置 contactWebhook 或其他申请处理机制，并更新相关联系信息。
+      icon: AlertTriangle
+      variant: warning
+
+  notices:
+    - type: warning
+      title: 重要提醒：
+      content: 本申请表单为示例功能，实际申请流程请以官方公告为准。网站管理员需要配置真实的申请处理机制，并在 content/siteconfig.json 中设置 contactWebhook。
+      icon: AlertTriangle
+
+# 功能设置
+features:
+  enableApplicationForm: true  # 是否启用申请表单
+  enableRealTimeValidation: true  # 实时表单验证
+  enableAutoSave: false  # 自动保存草稿
+  submitMethod: webhook  # webhook, email, api
+
+# 显示设置
+display:
+  layout: form-sidebar  # form-only, form-sidebar, wizard
+  formStyle: modern  # classic, modern, minimal
+  enableAnimations: true
+  sidebarPosition: right  # left, right
+
+# SEO配置
+seo:
+  metaTitle: 加入我们 - 百业
+  metaDescription: 申请加入燕云十六声百业团队，与优秀的团队成员一起创造精彩未来。简单的申请流程，专业的团队环境。
+  ogImage: /assets/og-join.jpg

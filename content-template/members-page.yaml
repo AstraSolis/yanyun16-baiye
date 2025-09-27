@@ -1,0 +1,59 @@
+# 成员页面配置文件
+pageInfo:
+  title: 百业成员  # 页面标题
+  subtitle: 团队精英展示  # 副标题
+  description: 认识我们优秀的团队成员，了解他们的故事与贡献  # 页面描述
+  keywords:  # SEO关键词
+    - 百业成员
+    - 团队介绍
+    - 成员展示
+    - 团队精英
+  lastUpdated: "2024-09-21"
+
+# 页面内容配置
+content:
+  hero:
+    title: 百业成员
+    description: 认识我们优秀的团队成员，了解他们的故事与贡献
+    badge: 以官方信息为准
+
+  sections:
+    memberGrid:
+      title: 团队成员
+      emptyState:
+        icon: 👥
+        title: 暂无成员信息
+        description: 请在 content/members.json 中添加成员数据
+        badge: 待更新
+    memberPreview:
+      title: 成员详情
+      navigationEnabled: true  # 是否启用键盘导航
+
+  notices:
+    - type: warning  # warning, info, success, error
+      title: 重要提醒：
+      content: 当前显示为示例数据。实际成员信息请以官方公告为准。网站管理员需要更新 content/members.json 文件并在 SOURCES.md 中添加信息来源。
+      icon: AlertTriangle
+
+# 显示设置
+display:
+  layout: grid-preview  # grid, list, grid-preview
+  showMemberDetails: true  # 是否显示成员详情面板
+  enableKeyboardNavigation: true  # 键盘导航
+  animationStyle: fade  # fade, slide, scale
+  showPlaceholderWarnings: true  # 是否显示占位内容警告
+
+# 成员显示配置
+memberDisplay:
+  showJoinDate: true  # 显示加入日期
+  showLocation: true  # 显示地理位置
+  showTags: true  # 显示标签
+  maxTagsDisplay: 3  # 最多显示标签数
+  avatarStyle: rounded  # 头像样式: rounded, circle, square
+  cardStyle: modern  # 卡片样式: classic, modern, minimal
+
+# SEO配置
+seo:
+  metaTitle: 团队成员 - 百业
+  metaDescription: 认识百业优秀的团队成员，了解他们的专业背景、技能特长和在团队中的贡献。
+  ogImage: /assets/og-members.jpg

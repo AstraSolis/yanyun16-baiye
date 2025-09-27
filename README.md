@@ -8,8 +8,8 @@
 - **响应式设计** - 适配所有设备尺寸，优秀的移动端体验
 - **现代UI设计** - 使用 Tailwind CSS + Framer Motion + Radix UI 组件
 - **3D视觉效果** - 集成 @paper-design/shaders-react 提供背景效果
-- **数据驱动架构** - 基于 JSONC 配置文件的内容管理系统
-- **支持注释配置** - JSONC 格式支持注释，便于配置文件维护
+- **数据驱动架构** - 基于 YAML 配置文件的内容管理系统
+- **支持注释配置** - YAML 格式原生支持注释，便于配置文件维护
 - **SEO友好** - 完整的元数据和搜索引擎优化
 - **易于部署** - 支持多平台静态部署，可选配置自动化流程
 - **TypeScript支持** - 完整的类型安全和开发体验
@@ -50,7 +50,7 @@ npm run dev
 
 ### 配置文件说明
 
-项目使用 **JSONC 格式**配置文件，支持添加注释！
+项目使用 **YAML 格式**配置文件，支持添加注释！
 
 ### 配置流程
 
@@ -61,27 +61,21 @@ npm run dev
    ```
 
 2. **编辑站点配置**
-   ```jsonc
-   // content/siteconfig.jsonc
-   {
-     "siteTitle": "你的站点名称", // 显示在浏览器标题
-     "siteDescription": "站点描述", // SEO描述
-     // ... 更多配置项
-   }
+   ```yaml
+   # content/siteconfig.yaml
+   siteTitle: 你的站点名称  # 显示在浏览器标题
+   siteDescription: 站点描述  # SEO描述
+   # ... 更多配置项
    ```
 
 3. **配置成员信息**
-   ```jsonc
-   // content/members.jsonc
-   [
-     {
-       "id": "member-001", // 唯一标识
-       "displayName": "成员姓名",
-       "role": "职位",
-       "bio": "成员简介",
-       // ... 更多字段
-     }
-   ]
+   ```yaml
+   # content/members.yaml
+   - id: member-001  # 唯一标识
+     displayName: 成员姓名
+     role: 职位
+     bio: 成员简介
+     # ... 更多字段
    ```
 
 4. **测试配置**
@@ -100,13 +94,13 @@ npm run dev
 ├── .github/
 │   └── workflows/          # GitHub Actions 配置示例（可选）
 ├── content/                # 本地配置文件（git忽略）
-│   ├── siteconfig.jsonc    # 站点配置（支持注释）
-│   ├── members.jsonc       # 成员信息（支持注释）
-│   ├── home-page.jsonc     # 首页配置
-│   ├── members-page.jsonc  # 成员页面配置
-│   ├── activities-page.jsonc  # 活动页面配置
-│   ├── join-page.jsonc     # 加入页面配置
-│   └── promotion-page.jsonc   # 宣传页面配置
+│   ├── siteconfig.yaml     # 站点配置（支持注释）
+│   ├── members.yaml        # 成员信息（支持注释）
+│   ├── home-page.yaml      # 首页配置
+│   ├── members-page.yaml   # 成员页面配置
+│   ├── activities-page.yaml  # 活动页面配置
+│   ├── join-page.yaml      # 加入页面配置
+│   └── promotion-page.yaml # 宣传页面配置
 ├── content-template/       # 配置模板（上传到Git）
 │   └── [与content同结构]   # 所有配置文件的模板版本
 ├── src/
@@ -214,9 +208,9 @@ npm run validate
 ### 配置系统特性
 
 **多层级配置**：
-- **站点配置** (`siteconfig.jsonc`) - 全站基础设置
-- **页面配置** (`*-page.jsonc`) - 单独页面内容配置
-- **成员配置** (`members.jsonc`) - 成员信息管理
+- **站点配置** (`siteconfig.yaml`) - 全站基础设置
+- **页面配置** (`*-page.yaml`) - 单独页面内容配置
+- **成员配置** (`members.yaml`) - 成员信息管理
 
 **配置内容包括**：
 - **基础站点信息**：标题、描述、关键词、图标
@@ -227,7 +221,7 @@ npm run validate
 - **SEO优化**：元数据、语言、更新日期
 
 **技术特点**：
-- 支持 JSONC 格式注释
+- 支持 YAML 格式注释
 - 运行时类型验证
 - 配置文件热重载
 - 构建时静态化处理
@@ -294,10 +288,10 @@ A: 请确保：
 3. 重新启动了开发服务器
 
 **Q: 如何添加新成员？**
-A: 在 `content/members.jsonc` 中添加新的成员对象，确保 `id` 唯一。
+A: 在 `content/members.yaml` 中添加新的成员对象，确保 `id` 唯一。
 
 **Q: 配置文件支持哪些注释格式？**
-A: 支持 `//` 行注释和 `/* */` 块注释。
+A: 支持 `#` 行注释（YAML 标准格式）。
 
 **Q: 如何自定义主题颜色？**
 A: 修改 `tailwind.config.ts` 中的颜色配置。
