@@ -16,10 +16,10 @@ defaultAvatar: /assets/placeholders/avatar-small.svg  # 默认头像路径
 
 # 社交媒体链接 - 填写实际的联系方式
 socialMedia:
-  officialQQ: ""  # QQ群或官方QQ号
-  officialWechat: ""  # 官方微信号
-  officialWeibo: ""  # 官方微博地址
-  officialEmail: ""  # 联系邮箱
+  QQ: ""  # QQ群或QQ号
+  wechat: ""  # 微信号
+  weibo: ""  # 微博地址
+  email: ""  # 联系邮箱
 
 # 申请加入相关设置
 applicationSettings:

@@ -26,10 +26,10 @@ export interface SiteConfig {
   contactWebhook: string
   defaultAvatar: string
   socialMedia: {
-    officialQQ: string
-    officialWechat: string
-    officialWeibo: string
-    officialEmail: string
+    QQ: string
+    wechat: string
+    weibo: string
+    email: string
   }
   applicationSettings: {
     enableApplicationForm: boolean
@@ -81,7 +81,7 @@ export async function getSiteConfigServer(): Promise<SiteConfig> {
     // 返回默认配置
     return {
       siteTitle: '燕云十六声 · 百业',
-      siteDescription: '燕云十六声百业官方宣传站点',
+      siteDescription: '燕云十六声百业宣传站点',
       baseUrl: '',
       siteIcon: {
         favicon: '/favicon.ico',
@@ -92,10 +92,10 @@ export async function getSiteConfigServer(): Promise<SiteConfig> {
       contactWebhook: '',
       defaultAvatar: '/assets/placeholders/avatar-small.svg',
       socialMedia: {
-        officialQQ: '',
-        officialWechat: '',
-        officialWeibo: '',
-        officialEmail: ''
+        QQ: '',
+        wechat: '',
+        weibo: '',
+        email: ''
       },
       applicationSettings: {
         enableApplicationForm: true,

@@ -25,16 +25,16 @@ const staggerContainer = {
 }
 
 export default function ActivitiesPage() {
-  // 待替换：官方活动数据，并更新 SOURCES.md
+  // 待替换：相关活动数据，并更新 SOURCES.md
   const activityCategories = [
     {
       icon: Gift,
       title: '成员福利',
       description: '专属福利待遇',
       items: [
-        '待官方确认 - 具体福利项目',
-        '待官方确认 - 福利发放时间',
-        '待官方确认 - 福利申请流程'
+        '待确认 - 具体福利项目',
+        '待确认 - 福利发放时间',
+        '待确认 - 福利申请流程'
       ],
       badge: '待确认',
       color: 'bg-primary/10 text-primary'
@@ -44,9 +44,9 @@ export default function ActivitiesPage() {
       title: '特殊权益',
       description: '高级成员特权',
       items: [
-        '待官方确认 - 特权范围',
-        '待官方确认 - 使用条件',
-        '待官方确认 - 有效期限'
+        '待确认 - 特权范围',
+        '待确认 - 使用条件',
+        '待确认 - 有效期限'
       ],
       badge: '待确认',
       color: 'bg-secondary/10 text-secondary'
@@ -56,9 +56,9 @@ export default function ActivitiesPage() {
       title: '保障服务',
       description: '成员保障政策',
       items: [
-        '待官方确认 - 保障内容',
-        '待官方确认 - 保障范围',
-        '待官方确认 - 申请条件'
+        '待确认 - 保障内容',
+        '待确认 - 保障范围',
+        '待确认 - 申请条件'
       ],
       badge: '待确认',
       color: 'bg-amber-500/10 text-amber-600'
@@ -68,9 +68,9 @@ export default function ActivitiesPage() {
       title: '发展机会',
       description: '成长与发展支持',
       items: [
-        '待官方确认 - 培训机会',
-        '待官方确认 - 发展路径',
-        '待官方确认 - 晋升机制'
+        '待确认 - 培训机会',
+        '待确认 - 发展路径',
+        '待确认 - 晋升机制'
       ],
       badge: '待确认',
       color: 'bg-teal-500/10 text-teal-600'
@@ -106,7 +106,7 @@ export default function ActivitiesPage() {
                 百业活动
               </h1>
               <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                {/* 待替换：官方描述，并更新 SOURCES.md */}
+                {/* 待替换：相关描述，并更新 SOURCES.md */}
                 了解燕云十六声百业成员的专属福利与待遇，共享团队发展成果
               </p>
               <motion.div
@@ -114,7 +114,7 @@ export default function ActivitiesPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <Badge variant="secondary" className="text-base px-6 py-3 bg-white/80 dark:bg-white/10 backdrop-blur-xs shadow-lg">
-                  以官方公告为准
+                  以最新公告为准
                 </Badge>
               </motion.div>
             </motion.div>
@@ -132,8 +132,8 @@ export default function ActivitiesPage() {
             <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800">
               <AlertTriangle className="h-4 w-4 text-amber-600" />
               <AlertDescription className="text-amber-800 dark:text-amber-200">
-                <strong>重要提醒：</strong>本页面所列福利信息均为占位内容，具体福利政策请以燕云十六声百业官方公告为准。
-                实际福利内容、申请条件、发放时间等详细信息请关注官方渠道发布。
+                <strong>重要提醒：</strong>本页面所列福利信息均为占位内容，具体福利政策请以燕云十六声百业最新公告为准。
+                实际福利内容、申请条件、发放时间等详细信息请关注相关渠道发布。
               </AlertDescription>
             </Alert>
           </motion.div>
@@ -153,7 +153,7 @@ export default function ActivitiesPage() {
               福利类别
             </h2>
             <p className="text-lg text-neutral-600 dark:text-neutral-300">
-              以下为福利分类概览，具体内容请以官方信息为准
+              以下为福利分类概览，具体内容请以最新信息为准
             </p>
           </motion.div>
 
@@ -228,29 +228,29 @@ export default function ActivitiesPage() {
               <EnhancedCardContent>
                 <div className="space-y-4">
                   <p className="text-neutral-600 dark:text-neutral-300">
-                    {/* 待替换：官方流程，并更新 SOURCES.md */}
-                    具体的福利申请流程待官方确认，包括但不限于：
+                    {/* 待替换：相关流程，并更新 SOURCES.md */}
+                    具体的福利申请流程待确认，包括但不限于：
                   </p>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-primary rounded-full" />
-                      申请条件确认（待官方明确）
+                      申请条件确认（待明确）
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-primary rounded-full" />
-                      申请材料准备（待官方指定）
+                      申请材料准备（待指定）
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-primary rounded-full" />
-                      审核流程说明（待官方规定）
+                      审核流程说明（待规定）
                     </li>
                     <li className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-primary rounded-full" />
-                      福利发放时间（待官方通知）
+                      福利发放时间（待通知）
                     </li>
                   </ul>
                   <Badge variant="secondary" className="text-xs">
-                    流程待官方确认
+                    流程待确认
                   </Badge>
                 </div>
               </EnhancedCardContent>
@@ -267,7 +267,7 @@ export default function ActivitiesPage() {
                       Q: 如何了解最新福利政策？
                     </h4>
                     <p className="text-sm text-neutral-600 dark:text-neutral-300">
-                      A: 请关注燕云十六声百业官方渠道，所有福利政策变更将通过官方公告发布。
+                      A: 请关注燕云十六声百业相关渠道，所有福利政策变更将通过最新公告发布。
                     </p>
                   </div>
                   <div>
@@ -275,7 +275,7 @@ export default function ActivitiesPage() {
                       Q: 福利申请是否有时间限制？
                     </h4>
                     <p className="text-sm text-neutral-600 dark:text-neutral-300">
-                      A: 具体时间限制请以官方公告为准，建议定期关注官方信息。
+                      A: 具体时间限制请以最新公告为准，建议定期关注最新信息。
                     </p>
                   </div>
                   <div>
@@ -283,7 +283,7 @@ export default function ActivitiesPage() {
                       Q: 如有福利相关问题应如何咨询？
                     </h4>
                     <p className="text-sm text-neutral-600 dark:text-neutral-300">
-                      A: 请通过官方指定的联系方式进行咨询，具体联系方式请查看官方公告。
+                      A: 请通过指定的联系方式进行咨询，具体联系方式请查看最新公告。
                     </p>
                   </div>
                 </div>
@@ -300,8 +300,8 @@ export default function ActivitiesPage() {
                       免责声明
                     </h4>
                     <p className="text-sm text-amber-700 dark:text-amber-300">
-                      本页面内容仅供参考，不构成任何福利承诺。所有福利政策以燕云十六声百业官方最新公告为准。
-                      网站管理员需要根据官方信息及时更新此页面内容，并在 SOURCES.md 中记录信息来源。
+                      本页面内容仅供参考，不构成任何福利承诺。所有福利政策以燕云十六声百业最新公告为准。
+                      网站管理员需要根据最新信息及时更新此页面内容，并在 SOURCES.md 中记录信息来源。
                     </p>
                   </div>
                 </div>

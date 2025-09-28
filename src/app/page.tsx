@@ -59,7 +59,7 @@ export default function HomePage() {
 
   // 如果配置还未加载，使用默认内容
   const siteTitle = config?.siteTitle || '百业'
-  const siteDescription = config?.siteDescription || '燕云十六声百业官方宣传站点'
+  const siteDescription = config?.siteDescription || '燕云十六声百业宣传站点'
 
   const sections = [
     { id: "hero", name: "首页" },
@@ -119,7 +119,7 @@ export default function HomePage() {
                   className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 backdrop-blur-xs mb-4 relative glass-effect"
                 >
                   <div className="absolute top-0 left-1 right-1 h-px bg-linear-to-r from-transparent via-white/20 to-transparent rounded-full" />
-                  <span className="text-white/90 text-xs font-light relative z-10">✨ 燕云十六声官方{siteTitle}组织</span>
+                  <span className="text-white/90 text-xs font-light relative z-10">✨ 燕云十六声{siteTitle}组织</span>
                 </div>
 
                 {/* 主标题 */}

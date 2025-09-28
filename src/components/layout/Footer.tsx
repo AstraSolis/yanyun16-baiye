@@ -48,9 +48,9 @@ export function Footer() {
               燕云十六声 · 百业
             </h3>
             <p className="text-sm text-muted-foreground max-w-md">
-              {/* 待替换：官方描述，并更新 SOURCES.md */}
+              {/* 待替换：相关描述，并更新 SOURCES.md */}
               这是一个数据驱动的静态站点，用于展示燕云十六声百业的相关信息。
-              所有内容均以官方公告为准。
+              所有内容均以最新公告为准。
             </p>
             <div className="flex flex-wrap gap-2">
               <Badge variant="secondary" className="text-xs">
@@ -126,7 +126,7 @@ export function Footer() {
             <div className="text-xs text-muted-foreground">
               <p className="font-medium mb-1 text-foreground">管理员提醒：</p>
               <p>
-                此站点当前显示占位内容。请根据官方信息更新相关数据文件：
+                此站点当前显示占位内容。请根据最新信息更新相关数据文件：
                 <code className="mx-1 px-1 py-0.5 bg-muted/20 rounded text-xs">
                   content/members.json
                 </code>、

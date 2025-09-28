@@ -78,11 +78,11 @@ export default function JoinPage() {
               加入百业
             </h1>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
-              {/* 待替换：官方招募信息，并更新 SOURCES.md */}
+              {/* 待替换：相关招募信息，并更新 SOURCES.md */}
               欢迎有志之士申请加入燕云十六声百业，共同创造精彩未来
             </p>
             <Badge variant="secondary" className="text-base px-4 py-2">
-              申请流程以官方公告为准
+              申请流程以最新公告为准
             </Badge>
           </motion.div>
         </div>
@@ -99,7 +99,7 @@ export default function JoinPage() {
             <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800">
               <AlertTriangle className="h-4 w-4 text-amber-600" />
               <AlertDescription className="text-amber-800 dark:text-amber-200">
-                <strong>重要提醒：</strong>本申请表单为示例功能，实际申请流程请以官方公告为准。
+                <strong>重要提醒：</strong>本申请表单为示例功能，实际申请流程请以最新公告为准。
                 网站管理员需要配置真实的申请处理机制，并在 content/siteconfig.json 中设置 contactWebhook。
               </AlertDescription>
             </Alert>
@@ -291,11 +291,11 @@ export default function JoinPage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 bg-primary rounded-full mt-1.5 shrink-0" />
-                        如有疑问可通过官方渠道咨询
+                        如有疑问可通过相关渠道咨询
                       </li>
                     </ul>
                     <Badge variant="outline" className="mt-4 text-xs">
-                      待官方确认
+                      待确认
                     </Badge>
                   </CardContent>
                 </Card>
@@ -313,21 +313,21 @@ export default function JoinPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3 text-sm">
-                      {/* 待替换：官方联系信息，并更新 SOURCES.md */}
+                      {/* 待替换：相关联系信息，并更新 SOURCES.md */}
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <ExternalLink className="h-4 w-4" />
-                        <span>官方QQ群: 待添加</span>
+                        <span>QQ群: 待添加</span>
                       </div>
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <ExternalLink className="h-4 w-4" />
-                        <span>官方微信群: 待添加</span>
+                        <span>微信群: 待添加</span>
                       </div>
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <Mail className="h-4 w-4" />
-                        <span>官方邮箱: 待添加</span>
+                        <span>联系邮箱: 待添加</span>
                       </div>
                       <Badge variant="secondary" className="text-xs mt-2">
-                        以官方公告为准
+                        以最新公告为准
                       </Badge>
                     </div>
                   </CardContent>

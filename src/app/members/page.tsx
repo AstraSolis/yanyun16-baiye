@@ -64,11 +64,11 @@ export default function MembersPage() {
               百业成员
             </h1>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
-              {/* 待替换：官方描述，并更新 SOURCES.md */}
+              {/* 待替换：相关描述，并更新 SOURCES.md */}
               认识我们优秀的团队成员，了解他们的故事与贡献
             </p>
             <Badge variant="secondary" className="text-base px-4 py-2">
-              以官方信息为准
+              以最新信息为准
             </Badge>
           </motion.div>
         </div>
@@ -85,7 +85,7 @@ export default function MembersPage() {
             <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800">
               <AlertTriangle className="h-4 w-4 text-amber-600" />
               <AlertDescription className="text-amber-800 dark:text-amber-200">
-                <strong>重要提醒：</strong>当前显示为示例数据。实际成员信息请以官方公告为准。
+                <strong>重要提醒：</strong>当前显示为示例数据。实际成员信息请以最新公告为准。
                 网站管理员需要更新 content/members.json 文件并在 SOURCES.md 中添加信息来源。
               </AlertDescription>
             </Alert>

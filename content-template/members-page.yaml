@@ -15,7 +15,7 @@ content:
   hero:
     title: 百业成员
     description: 认识我们优秀的团队成员，了解他们的故事与贡献
-    badge: 以官方信息为准
+    badge: 以最新信息为准
 
   sections:
     memberGrid:
@@ -32,7 +32,7 @@ content:
   notices:
     - type: warning  # warning, info, success, error
       title: 重要提醒：
-      content: 当前显示为示例数据。实际成员信息请以官方公告为准。网站管理员需要更新 content/members.json 文件并在 SOURCES.md 中添加信息来源。
+      content: 当前显示为示例数据。实际成员信息请以最新公告为准。网站管理员需要更新 content/members.json 文件并在 SOURCES.md 中添加信息来源。
       icon: AlertTriangle
 
 # 显示设置
