@@ -38,31 +38,36 @@
 
 @layer base {
   :root {
-    /* 采用shader-showcase的戏剧化黑色主题设计 */
+    /* 设计规范颜色系统 */
     --background: #000000; /* 纯黑背景 */
-    --foreground: oklch(1 0 0); /* 纯白文字 */
-    --card: oklch(0.95 0 0); /* 浅灰色卡片 */
-    --card-foreground: oklch(0 0 0); /* 卡片上的黑色文字 */
-    --popover: oklch(1 0 0); /* 白色弹出框 */
-    --popover-foreground: oklch(0 0 0); /* 弹出框黑色文字 */
-    --primary: oklch(0.65 0.2 270); /* 紫色强调色 */
-    --primary-foreground: oklch(1 0 0); /* 主色上的白色文字 */
-    --secondary: oklch(0.95 0 0); /* 浅灰色次要元素 */
-    --secondary-foreground: oklch(0 0 0); /* 次要元素黑色文字 */
-    --muted: oklch(0.25 0 0); /* 深灰色静音元素 */
-    --muted-foreground: oklch(0.95 0 0); /* 静音元素浅灰色文字 */
-    --accent: oklch(0.65 0.2 270); /* 紫色交互元素 */
-    --accent-foreground: oklch(1 0 0); /* 强调元素白色文字 */
-    --destructive: oklch(0.6 0.2 40); /* 琥珀色危险操作 */
-    --destructive-foreground: oklch(1 0 0); /* 危险操作白色文字 */
-    --border: oklch(1 0 0); /* 白色边框 */
-    --input: oklch(0.95 0 0); /* 浅灰色输入框 */
-    --ring: oklch(0.65 0.2 270); /* 紫色焦点环 */
-    --radius: 0.5rem; /* 柔和的圆角 */
+    --foreground: #FFFFFF; /* 白色文字 */
+    --card: #F8FAFC; /* 浅色卡片 */
+    --card-foreground: #0F1724; /* 卡片文字 */
+    --popover: #FFFFFF; /* 白色弹出框 */
+    --popover-foreground: #0F1724; /* 弹出框文字 */
+    --primary: #6F46FF; /* 设计规范紫色 */
+    --primary-foreground: #FFFFFF; /* 主色上的白色文字 */
+    --secondary: #F8FAFC; /* 浅色次要元素 */
+    --secondary-foreground: #0F1724; /* 次要元素文字 */
+    --muted: #475569; /* 中性灰 */
+    --muted-foreground: #94A3B8; /* 静音元素文字 */
+    --accent: #00C2D1; /* 设计规范青色 */
+    --accent-foreground: #FFFFFF; /* 强调元素白色文字 */
+    --destructive: #C9A66B; /* 金色 */
+    --destructive-foreground: #FFFFFF; /* 危险操作白色文字 */
+    --border: #94A3B8; /* 边框 */
+    --input: #F8FAFC; /* 输入框 */
+    --ring: #6F46FF; /* 紫色焦点环 */
+    --radius: 0.75rem; /* 12px 基础圆角 */
 
     /* 字体变量 */
     --font-instrument-serif: "Instrument Serif", serif;
     --font-figtree: "Figtree", sans-serif;
+    
+    /* 设计规范阴影 */
+    --shadow-small: 0 1px 3px rgba(15, 23, 36, 0.06);
+    --shadow-medium: 0 8px 24px rgba(15, 23, 36, 0.12);
+    --shadow-large: 0 24px 48px rgba(15, 23, 36, 0.16);
   }
 
   .dark {

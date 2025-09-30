@@ -7,7 +7,7 @@ import ShaderBackground from '@/components/ui/shader-background'
 import { Navigation } from '@/components/layout/Navigation'
 import { getSiteConfigClient } from '@/lib/config'
 import type { SiteConfig } from '@/lib/server-config'
-import { Gift, Users, UserPlus, Megaphone } from 'lucide-react'
+import { Gift, Users, UserPlus, Megaphone, ArrowRight } from 'lucide-react'
 
 export default function HomePage() {
   const [config, setConfig] = useState<SiteConfig | null>(null)
@@ -91,7 +91,7 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* 首页横幅部分 - 保持原有设计 */}
+      {/* 首页横幅部分 - 现代化设计 */}
       <section 
         id="hero"
         ref={(el) => { sectionsRef.current[0] = el }}
@@ -118,7 +118,7 @@ export default function HomePage() {
                 <div
                   className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 backdrop-blur-xs mb-4 relative glass-effect"
                 >
-                  <div className="absolute top-0 left-1 right-1 h-px bg-linear-to-r from-transparent via-white/20 to-transparent rounded-full" />
+                  <div className="absolute top-0 left-1 right-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full" />
                   <span className="text-white/90 text-xs font-light relative z-10">✨ 燕云十六声{siteTitle}组织</span>
                 </div>
 
@@ -163,7 +163,7 @@ export default function HomePage() {
         {/* 部分图片 */}
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
           <div className="flex justify-center">
-            <div className="relative rounded-2xl overflow-hidden">
+            <div className="relative rounded-md overflow-hidden">
               <Image
                 src="/assets/images/promotion.png"
                 alt="百业宣传"
@@ -175,21 +175,24 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 w-full flex-1 flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-            <div>
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-destructive/20 to-accent/20 border border-border p-8 flex items-center justify-center">
-                <Megaphone className="w-24 h-24 text-destructive/50" />
+            <div className="group">
+              <div className="aspect-square rounded-lg bg-gradient-to-br from-destructive/20 to-accent/20 border border-border p-12 flex items-center justify-center relative overflow-hidden shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250">
+                <Megaphone className="w-28 h-28 text-destructive relative z-10 transform group-hover:scale-110 transition-transform duration-250" />
               </div>
             </div>
 
             <div className="space-y-6 sm:space-y-8">
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono">
-                  <Megaphone className="w-4 h-4" />
-                  <span>PROMOTION / 百业宣传</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-destructive/10 rounded-round mb-2">
+                  <Megaphone className="w-3.5 h-3.5 text-destructive" />
+                  <span className="text-xs font-medium text-destructive tracking-wide uppercase">PROMOTION / 百业宣传</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-light">团队文化与愿景</h2>
+                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+                  团队文化与愿景
+                </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   了解燕云十六声{siteTitle}的发展历程、团队文化与未来愿景。我们致力于建设专业的团队文化，共同追求卓越。
                 </p>
@@ -197,26 +200,19 @@ export default function HomePage() {
 
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300">
-                    <div className="text-foreground font-medium">团队文化</div>
+                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
+                    <div className="text-card-foreground font-medium mb-1">团队文化</div>
                     <div className="text-sm text-muted-foreground">专业协作精神</div>
                   </div>
-                  <div className="p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300">
-                    <div className="text-foreground font-medium">未来愿景</div>
+                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
+                    <div className="text-card-foreground font-medium mb-1">未来愿景</div>
                     <div className="text-sm text-muted-foreground">持续发展目标</div>
                   </div>
                 </div>
                 <Link href="/promotion">
-                  <button className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300">
-                    <span className="text-base">了解团队文化</span>
-                    <svg
-                      className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                  <button className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-card-foreground border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1 transition-all duration-250">
+                    <span className="text-base font-medium">了解团队文化</span>
+                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-250" />
                   </button>
                 </Link>
               </div>
@@ -234,7 +230,7 @@ export default function HomePage() {
         {/* 部分图片 */}
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
           <div className="flex justify-center">
-            <div className="relative rounded-2xl overflow-hidden">
+            <div className="relative rounded-md overflow-hidden">
               <Image
                 src="/assets/images/activities.png"
                 alt="百业活动"
@@ -245,15 +241,18 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 w-full flex-1 flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
             <div className="space-y-6 sm:space-y-8">
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono">
-                  <Gift className="w-4 h-4" />
-                  <span>ACTIVITIES / 百业活动</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-round mb-2">
+                  <Gift className="w-3.5 h-3.5 text-primary" />
+                  <span className="text-xs font-medium text-primary tracking-wide uppercase">ACTIVITIES / 百业活动</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-light">成员专属福利</h2>
+                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+                  成员专属福利
+                </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   了解燕云十六声{siteTitle}成员的专属福利与待遇，共享团队发展成果。包括成员福利、特殊权益、保障服务和发展机会。
                 </p>
@@ -261,34 +260,27 @@ export default function HomePage() {
 
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300">
-                    <div className="text-foreground font-medium">成员福利</div>
+                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
+                    <div className="text-card-foreground font-medium mb-1">成员福利</div>
                     <div className="text-sm text-muted-foreground">专属福利待遇</div>
                   </div>
-                  <div className="p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300">
-                    <div className="text-foreground font-medium">特殊权益</div>
+                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
+                    <div className="text-card-foreground font-medium mb-1">特殊权益</div>
                     <div className="text-sm text-muted-foreground">高级成员特权</div>
                   </div>
                 </div>
                 <Link href="/activities">
-                  <button className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300">
-                    <span className="text-base">了解详细福利</span>
-                    <svg
-                      className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                  <button className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-card-foreground border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1 transition-all duration-250">
+                    <span className="text-base font-medium">了解详细福利</span>
+                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-250" />
                   </button>
                 </Link>
               </div>
             </div>
 
-            <div className="lg:order-first">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 border border-border p-8 flex items-center justify-center">
-                <Gift className="w-24 h-24 text-primary/50" />
+            <div className="lg:order-first group">
+              <div className="aspect-square rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 border border-border p-12 flex items-center justify-center relative overflow-hidden shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250">
+                <Gift className="w-28 h-28 text-primary relative z-10 transform group-hover:scale-110 transition-transform duration-250" />
               </div>
             </div>
           </div>
@@ -304,7 +296,7 @@ export default function HomePage() {
         {/* 部分图片 */}
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
           <div className="flex justify-center">
-            <div className="relative rounded-2xl overflow-hidden">
+            <div className="relative rounded-md overflow-hidden">
               <Image
                 src="/assets/images/members.png"
                 alt="百业成员"
@@ -315,21 +307,24 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 w-full flex-1 flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-            <div>
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-secondary/20 to-accent/20 border border-border p-8 flex items-center justify-center">
-                <Users className="w-24 h-24 text-secondary/50" />
+            <div className="group">
+              <div className="aspect-square rounded-lg bg-gradient-to-br from-muted/30 to-accent/20 border border-border p-12 flex items-center justify-center relative overflow-hidden shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250">
+                <Users className="w-28 h-28 text-muted relative z-10 transform group-hover:scale-110 transition-transform duration-250" />
               </div>
             </div>
 
             <div className="space-y-6 sm:space-y-8">
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono">
-                  <Users className="w-4 h-4" />
-                  <span>MEMBERS / 百业成员</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-muted/20 rounded-round mb-2">
+                  <Users className="w-3.5 h-3.5 text-muted" />
+                  <span className="text-xs font-medium text-muted tracking-wide uppercase">MEMBERS / 百业成员</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-light">优秀团队成员</h2>
+                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+                  优秀团队成员
+                </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   认识我们优秀的团队成员，了解他们的故事与贡献。每位成员都为团队带来独特的价值和专业技能。
                 </p>
@@ -337,26 +332,19 @@ export default function HomePage() {
 
               <div className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300">
-                    <div className="text-foreground font-medium">团队精英</div>
+                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
+                    <div className="text-card-foreground font-medium mb-1">团队精英</div>
                     <div className="text-sm text-muted-foreground">专业背景展示</div>
                   </div>
-                  <div className="p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300">
-                    <div className="text-foreground font-medium">成员故事</div>
+                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
+                    <div className="text-card-foreground font-medium mb-1">成员故事</div>
                     <div className="text-sm text-muted-foreground">了解成员贡献</div>
                   </div>
                 </div>
                 <Link href="/members">
-                  <button className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300">
-                    <span className="text-base">认识团队成员</span>
-                    <svg
-                      className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                  <button className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-card-foreground border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1 transition-all duration-250">
+                    <span className="text-base font-medium">认识团队成员</span>
+                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-250" />
                   </button>
                 </Link>
               </div>
@@ -374,7 +362,7 @@ export default function HomePage() {
         {/* 部分图片 */}
         <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
           <div className="flex justify-center">
-            <div className="relative rounded-2xl overflow-hidden">
+            <div className="relative rounded-md overflow-hidden">
               <Image
                 src="/assets/images/join.png"
                 alt="加入百业"
@@ -385,50 +373,46 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 w-full flex-1 flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
             <div className="space-y-6 sm:space-y-8">
               <div className="space-y-4">
-                <div className="flex items-center gap-3 text-sm text-muted-foreground font-mono">
-                  <UserPlus className="w-4 h-4" />
-                  <span>JOIN US / 加入百业</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-round mb-2">
+                  <UserPlus className="w-3.5 h-3.5 text-accent" />
+                  <span className="text-xs font-medium text-accent tracking-wide uppercase">JOIN US / 加入百业</span>
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-light">成为团队一员</h2>
+                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+                  成为团队一员
+                </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   欢迎有志之士申请加入燕云十六声{siteTitle}，与我们一起创造精彩未来。简单的申请流程，专业的团队环境。
                 </p>
               </div>
 
               <div className="space-y-4">
-                <div className="grid grid-cols-1 gap-4">
-                  <div className="p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300">
-                    <div className="text-foreground font-medium">申请流程简单</div>
-                    <div className="text-sm text-muted-foreground">填写申请表单，3-7个工作日内回复</div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
+                    <div className="text-card-foreground font-medium mb-1">申请流程简单</div>
+                    <div className="text-sm text-muted-foreground">3-7日内回复</div>
                   </div>
-                  <div className="p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300">
-                    <div className="text-foreground font-medium">专业团队环境</div>
-                    <div className="text-sm text-muted-foreground">与优秀同伴共同成长发展</div>
+                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
+                    <div className="text-card-foreground font-medium mb-1">专业团队环境</div>
+                    <div className="text-sm text-muted-foreground">共同成长发展</div>
                   </div>
                 </div>
                 <Link href="/join">
-                  <button className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300">
-                    <span className="text-base">立即申请加入</span>
-                    <svg
-                      className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                  <button className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-card-foreground border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1 transition-all duration-250">
+                    <span className="text-base font-medium">立即申请加入</span>
+                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-250" />
                   </button>
                 </Link>
               </div>
             </div>
 
-            <div className="lg:order-first">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 border border-border p-8 flex items-center justify-center">
-                <UserPlus className="w-24 h-24 text-accent/50" />
+            <div className="lg:order-first group">
+              <div className="aspect-square rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 border border-border p-12 flex items-center justify-center relative overflow-hidden shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250">
+                <UserPlus className="w-28 h-28 text-accent relative z-10 transform group-hover:scale-110 transition-transform duration-250" />
               </div>
             </div>
           </div>

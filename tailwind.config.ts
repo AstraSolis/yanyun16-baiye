@@ -46,9 +46,15 @@ const config: Config = {
         },
       },
       borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
+        lg: '20px', // 设计规范 radius.lg
+        md: '12px', // 设计规范 radius.md
+        sm: '6px',  // 设计规范 radius.sm
+        round: '9999px', // 设计规范 radius.round
+      },
+      boxShadow: {
+        'small': '0 1px 3px rgba(15, 23, 36, 0.06)',
+        'medium': '0 8px 24px rgba(15, 23, 36, 0.12)',
+        'large': '0 24px 48px rgba(15, 23, 36, 0.16)',
       },
       backgroundImage: {
         // Custom gradients avoiding purple
@@ -56,6 +62,13 @@ const config: Config = {
         'gradient-warm': 'linear-gradient(135deg, #f59e0b, #d97706)',
         'gradient-cool': 'linear-gradient(135deg, #14b8a6, #0d9488)',
         'gradient-neutral': 'linear-gradient(135deg, #71717a, #3f3f46)',
+      },
+      transitionDuration: {
+        '150': '150ms', // 设计规范 short
+        '250': '250ms', // 设计规范 medium
+      },
+      transitionTimingFunction: {
+        'smooth': 'cubic-bezier(.2,.9,.2,1)', // 设计规范 easing
       },
       animation: {
         'fade-in': 'fadeIn 0.3s ease-in-out',
