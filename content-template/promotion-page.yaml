@@ -76,12 +76,6 @@ content:
       badge: 待确认
       type: list
 
-  notices:
-    - type: warning
-      title: 重要提醒
-      content: 本页面所有信息均为占位内容，实际内容请以燕云十六声百业最新公告为准。网站管理员需要根据最新信息更新此页面内容，并在 SOURCES.md 中添加相应的来源链接。
-      icon: AlertTriangle
-
 # 显示设置
 display:
   layout: sections  # overview-highlights, sections, timeline

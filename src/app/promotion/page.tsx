@@ -22,7 +22,6 @@ const staggerContainer = {
 }
 
 export default function PromotionPage() {
-  // 待替换：相关数据，并更新 SOURCES.md
   const highlights = [
     {
       icon: Users,
@@ -65,7 +64,6 @@ export default function PromotionPage() {
               百业宣传
             </h1>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
-              {/* 待替换：相关描述，并更新 SOURCES.md */}
               了解燕云十六声百业的发展历程、团队文化与未来愿景
             </p>
             <Badge variant="secondary" className="text-base px-4 py-2">
@@ -91,7 +89,6 @@ export default function PromotionPage() {
                   关于燕云十六声百业
                 </CardTitle>
                 <CardDescription className="text-lg max-w-3xl mx-auto">
-                  {/* 待替换：相关信息，并更新 SOURCES.md */}
                   此部分内容待确认，请以最新公告为准。如需了解最新信息，请关注相关渠道。
                 </CardDescription>
               </CardHeader>
@@ -140,7 +137,6 @@ export default function PromotionPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-neutral-600 dark:text-neutral-300 text-base leading-relaxed">
-                  {/* 待替换：相关信息，并更新 SOURCES.md */}
                   此部分内容待确认，具体的团队文化和价值观请以最新信息为准。建议定期关注最新公告以获取最新信息。
                 </p>
                 <Badge variant="secondary" className="mt-4">
@@ -155,7 +151,6 @@ export default function PromotionPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-neutral-600 dark:text-neutral-300 text-base leading-relaxed">
-                  {/* 待替换：相关信息，并更新 SOURCES.md */}
                   此部分内容待确认，发展规划和未来愿景请以最新公告为准。如需了解详细信息，请通过相关渠道获取。
                 </p>
                 <Badge variant="secondary" className="mt-4">
@@ -164,19 +159,6 @@ export default function PromotionPage() {
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">重要提醒</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
-                  <p className="text-amber-800 dark:text-amber-200 text-sm">
-                    <strong>注意：</strong>本页面所有信息均为占位内容，实际内容请以燕云十六声百业最新公告为准。
-                    网站管理员需要根据最新信息更新此页面内容，并在 SOURCES.md 中添加相应的来源链接。
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
           </motion.div>
         </div>
       </section>

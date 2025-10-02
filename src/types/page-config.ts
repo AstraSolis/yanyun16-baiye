@@ -92,7 +92,6 @@ export interface MembersPageConfig extends BasePageConfig {
     showMemberDetails: boolean
     enableKeyboardNavigation: boolean
     animationStyle: 'fade' | 'slide' | 'scale'
-    showPlaceholderWarnings: boolean
   }
   memberDisplay: {
     showJoinDate: boolean

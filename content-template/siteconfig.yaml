@@ -56,9 +56,3 @@ displaySettings:
   maxMemberTagsDisplay: 3  # 最多显示的标签数量
   enableDarkMode: true  # 是否启用深色模式
   defaultTheme: light  # 默认主题：light 或 dark
-
-# 内容警告和提醒
-contentWarnings:
-  showPlaceholderWarnings: true  # 是否显示占位内容警告
-  showSourcesReminder: true  # 是否显示信息来源提醒
-  adminNoticeEnabled: true  # 是否启用管理员通知

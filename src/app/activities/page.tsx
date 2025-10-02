@@ -25,7 +25,6 @@ const staggerContainer = {
 }
 
 export default function ActivitiesPage() {
-  // 待替换：相关活动数据，并更新 SOURCES.md
   const activityCategories = [
     {
       icon: Gift,
@@ -106,7 +105,6 @@ export default function ActivitiesPage() {
                 百业活动
               </h1>
               <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                {/* 待替换：相关描述，并更新 SOURCES.md */}
                 了解燕云十六声百业成员的专属福利与待遇，共享团队发展成果
               </p>
               <motion.div
@@ -119,25 +117,6 @@ export default function ActivitiesPage() {
               </motion.div>
             </motion.div>
           </div>
-      </section>
-
-      {/* 重要提醒 */}
-      <section className="px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800">
-              <AlertTriangle className="h-4 w-4 text-amber-600" />
-              <AlertDescription className="text-amber-800 dark:text-amber-200">
-                <strong>重要提醒：</strong>本页面所列福利信息均为占位内容，具体福利政策请以燕云十六声百业最新公告为准。
-                实际福利内容、申请条件、发放时间等详细信息请关注相关渠道发布。
-              </AlertDescription>
-            </Alert>
-          </motion.div>
-        </div>
       </section>
 
       {/* 福利网格 */}
@@ -228,7 +207,6 @@ export default function ActivitiesPage() {
               <EnhancedCardContent>
                 <div className="space-y-4">
                   <p className="text-neutral-600 dark:text-neutral-300">
-                    {/* 待替换：相关流程，并更新 SOURCES.md */}
                     具体的福利申请流程待确认，包括但不限于：
                   </p>
                   <ul className="space-y-2 text-sm">
@@ -284,24 +262,6 @@ export default function ActivitiesPage() {
                     </h4>
                     <p className="text-sm text-neutral-600 dark:text-neutral-300">
                       A: 请通过指定的联系方式进行咨询，具体联系方式请查看最新公告。
-                    </p>
-                  </div>
-                </div>
-              </EnhancedCardContent>
-            </EnhancedCard>
-
-            {/* 最终免责声明 */}
-            <EnhancedCard variant="glass" className="border-amber-200/50 bg-amber-50/30 dark:bg-amber-900/20 backdrop-blur-md">
-              <EnhancedCardContent className="pt-6">
-                <div className="flex items-start gap-3">
-                  <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-medium text-amber-800 dark:text-amber-200 mb-2">
-                      免责声明
-                    </h4>
-                    <p className="text-sm text-amber-700 dark:text-amber-300">
-                      本页面内容仅供参考，不构成任何福利承诺。所有福利政策以燕云十六声百业最新公告为准。
-                      网站管理员需要根据最新信息及时更新此页面内容，并在 SOURCES.md 中记录信息来源。
                     </p>
                   </div>
                 </div>

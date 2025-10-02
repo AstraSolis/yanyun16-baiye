@@ -2,6 +2,7 @@
   "name": "yanyun16-baiye",
   "version": "0.1.0",
   "private": true,
+  "author": "AstraSolis",
   "description": "燕云十六声 · 百业 - 一个百业宣传模板,支持静态网页导出",
   "scripts": {
     "dev": "concurrently \"npm run dev:server\" \"npm run watch\" --names \"Next,Watch\" --prefix-colors \"cyan,magenta\"",

@@ -55,11 +55,6 @@ export interface SiteConfig {
     enableDarkMode: boolean
     defaultTheme: string
   }
-  contentWarnings: {
-    showPlaceholderWarnings: boolean
-    showSourcesReminder: boolean
-    adminNoticeEnabled: boolean
-  }
 }
 
 // 服务端专用：读取站点配置
@@ -120,11 +115,6 @@ export async function getSiteConfigServer(): Promise<SiteConfig> {
         maxMemberTagsDisplay: 3,
         enableDarkMode: true,
         defaultTheme: 'light'
-      },
-      contentWarnings: {
-        showPlaceholderWarnings: true,
-        showSourcesReminder: true,
-        adminNoticeEnabled: true
       }
     }
   }

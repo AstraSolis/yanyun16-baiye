@@ -78,31 +78,11 @@ export default function JoinPage() {
               加入百业
             </h1>
             <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8">
-              {/* 待替换：相关招募信息，并更新 SOURCES.md */}
               欢迎有志之士申请加入燕云十六声百业，共同创造精彩未来
             </p>
             <Badge variant="secondary" className="text-base px-4 py-2">
               申请流程以最新公告为准
             </Badge>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* 重要提醒 */}
-      <section className="px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Alert className="border-amber-200 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800">
-              <AlertTriangle className="h-4 w-4 text-amber-600" />
-              <AlertDescription className="text-amber-800 dark:text-amber-200">
-                <strong>重要提醒：</strong>本申请表单为示例功能，实际申请流程请以最新公告为准。
-                网站管理员需要配置真实的申请处理机制，并在 content/siteconfig.json 中设置 contactWebhook。
-              </AlertDescription>
-            </Alert>
           </motion.div>
         </div>
       </section>
@@ -313,7 +293,6 @@ export default function JoinPage() {
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3 text-sm">
-                      {/* 待替换：相关联系信息，并更新 SOURCES.md */}
                       <div className="flex items-center gap-2 text-muted-foreground">
                         <ExternalLink className="h-4 w-4" />
                         <span>QQ群: 待添加</span>
@@ -329,30 +308,6 @@ export default function JoinPage() {
                       <Badge variant="secondary" className="text-xs mt-2">
                         以最新公告为准
                       </Badge>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-
-              <motion.div
-                variants={fadeInUp}
-                initial="initial"
-                animate="animate"
-                transition={{ delay: 0.4 }}
-              >
-                <Card className="border-amber-200 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800">
-                  <CardContent className="pt-6">
-                    <div className="flex items-start gap-3">
-                      <AlertTriangle className="h-5 w-5 text-amber-600 shrink-0 mt-0.5" />
-                      <div>
-                        <h4 className="font-medium text-amber-800 dark:text-amber-200 mb-2 text-sm">
-                          配置提醒
-                        </h4>
-                        <p className="text-xs text-amber-700 dark:text-amber-300">
-                          此申请表单为示例实现。管理员需要在 content/siteconfig.json 中配置 contactWebhook 
-                          或其他申请处理机制，并更新相关联系信息。
-                        </p>
-                      </div>
                     </div>
                   </CardContent>
                 </Card>

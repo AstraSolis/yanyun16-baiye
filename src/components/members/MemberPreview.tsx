@@ -161,42 +161,6 @@ export function MemberPreview({ member }: MemberPreviewProps) {
                 </div>
               )}
             </div>
-
-            {/* 缺失数据的占位符 */}
-            {!member.bio && !member.joinDate && !member.location && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4 mt-4"
-              >
-                <p className="text-amber-800 dark:text-amber-200 text-sm">
-                  <strong>提醒：</strong>当前显示为占位数据。请在 content/members.json 中更新此成员的详细信息，
-                  并在 SOURCES.md 中添加信息来源。
-                </p>
-              </motion.div>
-            )}
-
-            {/* 管理员的数据来源指示器 */}
-            {member.sources && member.sources.length > 0 ? (
-              <div className="mt-4 pt-4 border-t border-border">
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <span>信息来源: {member.sources.length} 个</span>
-                  <Badge variant="outline" className="text-xs">
-                    已验证
-                  </Badge>
-                </div>
-              </div>
-            ) : (
-              <div className="mt-4 pt-4 border-t border-border">
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <span>信息来源: 待添加</span>
-                  <Badge variant="outline" className="text-xs border-amber-300 text-amber-600">
-                    未验证
-                  </Badge>
-                </div>
-              </div>
-            )}
           </CardContent>
         </motion.div>
       </Card>

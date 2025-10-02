@@ -101,18 +101,6 @@ content:
           icon: Mail
       badge: 以最新公告为准
 
-    - title: 配置提醒
-      type: notice
-      content: 此申请表单为示例实现。管理员需要在 content/siteconfig.json 中配置 contactWebhook 或其他申请处理机制，并更新相关联系信息。
-      icon: AlertTriangle
-      variant: warning
-
-  notices:
-    - type: warning
-      title: 重要提醒：
-      content: 本申请表单为示例功能，实际申请流程请以最新公告为准。网站管理员需要配置真实的申请处理机制，并在 content/siteconfig.json 中设置 contactWebhook。
-      icon: AlertTriangle
-
 # 功能设置
 features:
   enableApplicationForm: true  # 是否启用申请表单

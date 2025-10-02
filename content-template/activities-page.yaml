@@ -86,16 +86,6 @@ content:
           - question: 如有福利相关问题应如何咨询？
             answer: 请通过指定的联系方式进行咨询，具体联系方式请查看最新公告。
 
-  notices:
-    - type: warning
-      title: 重要提醒：
-      content: 本页面所列福利信息均为占位内容，具体福利政策请以燕云十六声百业最新公告为准。实际福利内容、申请条件、发放时间等详细信息请关注相关渠道发布。
-      icon: AlertTriangle
-    - type: disclaimer
-      title: 免责声明
-      content: 本页面内容仅供参考，不构成任何福利承诺。所有福利政策以燕云十六声百业最新公告为准。网站管理员需要根据最新信息及时更新此页面内容，并在 SOURCES.md 中记录信息来源。
-      icon: AlertTriangle
-
 # 显示设置
 display:
   backgroundType: subdued-shader  # subdued-shader, gradient, solid

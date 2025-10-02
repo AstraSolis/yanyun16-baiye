@@ -29,19 +29,12 @@ content:
       title: 成员详情
       navigationEnabled: true  # 是否启用键盘导航
 
-  notices:
-    - type: warning  # warning, info, success, error
-      title: 重要提醒：
-      content: 当前显示为示例数据。实际成员信息请以最新公告为准。网站管理员需要更新 content/members.json 文件并在 SOURCES.md 中添加信息来源。
-      icon: AlertTriangle
-
 # 显示设置
 display:
   layout: grid-preview  # grid, list, grid-preview
   showMemberDetails: true  # 是否显示成员详情面板
   enableKeyboardNavigation: true  # 键盘导航
   animationStyle: fade  # fade, slide, scale
-  showPlaceholderWarnings: true  # 是否显示占位内容警告
 
 # 成员显示配置
 memberDisplay:
