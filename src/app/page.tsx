@@ -188,268 +188,222 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 宣传部分 */}
+      {/* 宣传部分 - 极简文字排版 */}
       <section
         id="promotion"
         ref={(el) => { sectionsRef.current[1] = el }}
-        className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
+        className="min-h-screen flex items-center opacity-0 bg-zinc-50"
       >
-        {/* 部分图片 */}
-        <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
-          <div className="flex justify-center">
-            <div className="relative rounded-md overflow-hidden">
-              <Image
-                src="/assets/images/promotion.png"
-                alt="百业宣传"
-                width={634}
-                height={150}
-                className="object-cover"
-                priority
-              />
-            </div>
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 w-full py-20">
+          {/* 顶部标签 */}
+          <div className="mb-16">
+            <span className="text-xs font-medium tracking-widest text-zinc-400 uppercase">Promotion</span>
           </div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 w-full flex-1 flex items-center">
-          <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-            <div className="group">
-              <div className="aspect-square rounded-lg bg-gradient-to-br from-destructive/20 to-accent/20 border border-border p-12 flex items-center justify-center relative overflow-hidden shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250">
-                <Megaphone className="w-28 h-28 text-destructive relative z-10 transform group-hover:scale-110 transition-transform duration-250" />
-              </div>
+          
+          {/* 主要内容 */}
+          <div className="grid lg:grid-cols-2 gap-20 items-start">
+            {/* 左侧大标题 */}
+            <div>
+              <h2 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight text-zinc-900 leading-[1.1]">
+                团队文化<br />与愿景
+              </h2>
             </div>
-
-            <div className="space-y-6 sm:space-y-8">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-destructive/10 rounded-round mb-2">
-                  <Megaphone className="w-3.5 h-3.5 text-destructive" />
-                  <span className="text-xs font-medium text-destructive tracking-wide uppercase">PROMOTION / 百业宣传</span>
-                </div>
-                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-                  团队文化与愿景
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  了解燕云十六声{siteTitle}的发展历程、团队文化与未来愿景。我们致力于建设专业的团队文化，共同追求卓越。
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
-                    <div className="text-card-foreground font-medium mb-1">团队文化</div>
-                    <div className="text-sm text-muted-foreground">专业协作精神</div>
-                  </div>
-                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
-                    <div className="text-card-foreground font-medium mb-1">未来愿景</div>
-                    <div className="text-sm text-muted-foreground">持续发展目标</div>
+            
+            {/* 右侧内容 */}
+            <div className="space-y-12 pt-4">
+              <p className="text-lg text-zinc-600 leading-relaxed">
+                了解燕云十六声{siteTitle}的发展历程、团队文化与未来愿景。<br />
+                我们致力于建设专业的团队文化，共同追求卓越。
+              </p>
+              
+              {/* 细线分割 */}
+              <div className="h-px bg-zinc-200 w-16" />
+              
+              {/* 信息列表 */}
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-1 h-1 rounded-full bg-zinc-900 mt-3" />
+                  <div>
+                    <h3 className="text-sm font-medium text-zinc-900 mb-1">团队文化</h3>
+                    <p className="text-sm text-zinc-500">专业协作，追求卓越</p>
                   </div>
                 </div>
-                <Link href="/promotion">
-                  <button className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-card-foreground border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1 transition-all duration-250">
-                    <span className="text-base font-medium">了解团队文化</span>
-                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-250" />
-                  </button>
-                </Link>
+                <div className="flex items-start gap-4">
+                  <div className="w-1 h-1 rounded-full bg-zinc-900 mt-3" />
+                  <div>
+                    <h3 className="text-sm font-medium text-zinc-900 mb-1">未来愿景</h3>
+                    <p className="text-sm text-zinc-500">持续发展，共创辉煌</p>
+                  </div>
+                </div>
               </div>
+              
+              {/* CTA */}
+              <Link href="/promotion">
+                <button className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-900 hover:text-zinc-600 transition-colors relative">
+                  了解更多
+                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-zinc-900 group-hover:w-12 transition-all duration-300" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 活动部分 */}
+      {/* 活动部分 - 精致卡片网格 */}
       <section
         id="activities"
         ref={(el) => { sectionsRef.current[2] = el }}
-        className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
+        className="min-h-screen flex items-center opacity-0 bg-white"
       >
-        {/* 部分图片 */}
-        <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
-          <div className="flex justify-center">
-            <div className="relative rounded-md overflow-hidden">
-              <Image
-                src="/assets/images/activities.png"
-                alt="百业活动"
-                width={634}
-                height={150}
-                className="object-cover"
-              />
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 w-full py-20">
+          {/* 顶部 */}
+          <div className="mb-16 max-w-2xl">
+            <span className="text-xs font-medium tracking-widest text-zinc-400 uppercase mb-6 block">Activities</span>
+            <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-zinc-900 mb-6">
+              成员专属福利
+            </h2>
+            <p className="text-base text-zinc-500 leading-relaxed">
+              共享团队发展成果，享受专属待遇与发展机会
+            </p>
+          </div>
+          
+          {/* 卡片网格 */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+            <div className="group p-8 bg-zinc-50 hover:bg-zinc-100 transition-colors cursor-pointer">
+              <Gift className="w-6 h-6 text-zinc-900 mb-4" />
+              <h3 className="text-base font-medium text-zinc-900 mb-2">成员福利</h3>
+              <p className="text-sm text-zinc-500 leading-relaxed">专属福利待遇</p>
+            </div>
+            
+            <div className="group p-8 bg-zinc-50 hover:bg-zinc-100 transition-colors cursor-pointer">
+              <Users className="w-6 h-6 text-zinc-900 mb-4" />
+              <h3 className="text-base font-medium text-zinc-900 mb-2">特殊权益</h3>
+              <p className="text-sm text-zinc-500 leading-relaxed">高级成员特权</p>
+            </div>
+            
+            <div className="group p-8 bg-zinc-50 hover:bg-zinc-100 transition-colors cursor-pointer">
+              <Megaphone className="w-6 h-6 text-zinc-900 mb-4" />
+              <h3 className="text-base font-medium text-zinc-900 mb-2">保障服务</h3>
+              <p className="text-sm text-zinc-500 leading-relaxed">完善的保障体系</p>
+            </div>
+            
+            <div className="group p-8 bg-zinc-50 hover:bg-zinc-100 transition-colors cursor-pointer">
+              <UserPlus className="w-6 h-6 text-zinc-900 mb-4" />
+              <h3 className="text-base font-medium text-zinc-900 mb-2">发展机会</h3>
+              <p className="text-sm text-zinc-500 leading-relaxed">共同成长进步</p>
             </div>
           </div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 w-full flex-1 flex items-center">
-          <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-            <div className="space-y-6 sm:space-y-8">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 rounded-round mb-2">
-                  <Gift className="w-3.5 h-3.5 text-primary" />
-                  <span className="text-xs font-medium text-primary tracking-wide uppercase">ACTIVITIES / 百业活动</span>
-                </div>
-                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-                  成员专属福利
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  了解燕云十六声{siteTitle}成员的专属福利与待遇，共享团队发展成果。包括成员福利、特殊权益、保障服务和发展机会。
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
-                    <div className="text-card-foreground font-medium mb-1">成员福利</div>
-                    <div className="text-sm text-muted-foreground">专属福利待遇</div>
-                  </div>
-                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
-                    <div className="text-card-foreground font-medium mb-1">特殊权益</div>
-                    <div className="text-sm text-muted-foreground">高级成员特权</div>
-                  </div>
-                </div>
-                <Link href="/activities">
-                  <button className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-card-foreground border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1 transition-all duration-250">
-                    <span className="text-base font-medium">了解详细福利</span>
-                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-250" />
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:order-first group">
-              <div className="aspect-square rounded-lg bg-gradient-to-br from-primary/20 to-accent/20 border border-border p-12 flex items-center justify-center relative overflow-hidden shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250">
-                <Gift className="w-28 h-28 text-primary relative z-10 transform group-hover:scale-110 transition-transform duration-250" />
-              </div>
-            </div>
-          </div>
+          
+          {/* CTA */}
+          <Link href="/activities">
+            <button className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-900 hover:text-zinc-600 transition-colors relative">
+              查看所有福利
+              <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-zinc-900 group-hover:w-16 transition-all duration-300" />
+            </button>
+          </Link>
         </div>
       </section>
 
-      {/* 成员部分 */}
+      {/* 成员部分 - 数字统计展示 */}
       <section
         id="members"
         ref={(el) => { sectionsRef.current[3] = el }}
-        className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
+        className="min-h-screen flex items-center opacity-0 bg-white"
       >
-        {/* 部分图片 */}
-        <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
-          <div className="flex justify-center">
-            <div className="relative rounded-md overflow-hidden">
-              <Image
-                src="/assets/images/members.png"
-                alt="百业成员"
-                width={634}
-                height={150}
-                className="object-cover"
-              />
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 w-full py-20">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            {/* 左侧 - 标题和描述 */}
+            <div>
+              <span className="text-xs font-medium tracking-widest text-zinc-400 uppercase mb-6 block">Members</span>
+              <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-zinc-900 mb-6">
+                优秀团队<br />成员
+              </h2>
+              <p className="text-base text-zinc-500 leading-relaxed mb-8">
+                认识我们优秀的团队成员，了解他们的故事与贡献
+              </p>
+              
+              <Link href="/members">
+                <button className="group inline-flex items-center gap-2 text-sm font-medium text-zinc-900 hover:text-zinc-600 transition-colors relative">
+                  认识团队成员
+                  <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-px bg-zinc-900 group-hover:w-16 transition-all duration-300" />
+                </button>
+              </Link>
             </div>
-          </div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 w-full flex-1 flex items-center">
-          <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-            <div className="group">
-              <div className="aspect-square rounded-lg bg-gradient-to-br from-muted/30 to-accent/20 border border-border p-12 flex items-center justify-center relative overflow-hidden shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250">
-                <Users className="w-28 h-28 text-muted relative z-10 transform group-hover:scale-110 transition-transform duration-250" />
+            
+            {/* 右侧 - 数字统计 */}
+            <div className="grid grid-cols-2 gap-8">
+              <div className="border-l border-zinc-200 pl-6">
+                <div className="text-5xl font-light text-zinc-900 mb-2">50+</div>
+                <div className="text-sm text-zinc-500">活跃成员</div>
               </div>
-            </div>
-
-            <div className="space-y-6 sm:space-y-8">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-muted/20 rounded-round mb-2">
-                  <Users className="w-3.5 h-3.5 text-muted" />
-                  <span className="text-xs font-medium text-muted tracking-wide uppercase">MEMBERS / 百业成员</span>
-                </div>
-                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-                  优秀团队成员
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  认识我们优秀的团队成员，了解他们的故事与贡献。每位成员都为团队带来独特的价值和专业技能。
-                </p>
+              
+              <div className="border-l border-zinc-200 pl-6">
+                <div className="text-5xl font-light text-zinc-900 mb-2">10+</div>
+                <div className="text-sm text-zinc-500">核心成员</div>
               </div>
-
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
-                    <div className="text-card-foreground font-medium mb-1">团队精英</div>
-                    <div className="text-sm text-muted-foreground">专业背景展示</div>
-                  </div>
-                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
-                    <div className="text-card-foreground font-medium mb-1">成员故事</div>
-                    <div className="text-sm text-muted-foreground">了解成员贡献</div>
-                  </div>
-                </div>
-                <Link href="/members">
-                  <button className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-card-foreground border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1 transition-all duration-250">
-                    <span className="text-base font-medium">认识团队成员</span>
-                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-250" />
-                  </button>
-                </Link>
+              
+              <div className="border-l border-zinc-200 pl-6">
+                <div className="text-5xl font-light text-zinc-900 mb-2">100%</div>
+                <div className="text-sm text-zinc-500">专业精神</div>
+              </div>
+              
+              <div className="border-l border-zinc-200 pl-6">
+                <div className="text-5xl font-light text-zinc-900 mb-2">24/7</div>
+                <div className="text-sm text-zinc-500">团队支持</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 加入部分 */}
+      {/* 加入部分 - CTA突出居中式 */}
       <section
         id="join"
         ref={(el) => { sectionsRef.current[4] = el }}
-        className="min-h-screen flex flex-col py-20 sm:py-32 opacity-0"
+        className="min-h-screen flex items-center opacity-0 bg-white"
       >
-        {/* 部分图片 */}
-        <div className="w-full max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 mb-12">
-          <div className="flex justify-center">
-            <div className="relative rounded-md overflow-hidden">
-              <Image
-                src="/assets/images/join.png"
-                alt="加入百业"
-                width={634}
-                height={150}
-                className="object-cover"
-              />
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 w-full py-20 text-center">
+          {/* 顶部标签 */}
+          <span className="text-xs font-medium tracking-widest text-zinc-400 uppercase mb-8 block">Join Us</span>
+          
+          {/* 主标题 */}
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight text-zinc-900 mb-6 leading-[1.1]">
+            成为团队一员
+          </h2>
+          
+          {/* 描述文字 */}
+          <p className="text-lg text-zinc-500 leading-relaxed mb-12 max-w-2xl mx-auto">
+            欢迎有志之士申请加入燕云十六声{siteTitle}<br />
+            与我们一起创造精彩未来
+          </p>
+          
+          {/* 细线分割 */}
+          <div className="h-px bg-zinc-200 w-16 mx-auto mb-12" />
+          
+          {/* 关键信息 */}
+          <div className="grid sm:grid-cols-2 gap-8 max-w-xl mx-auto mb-16">
+            <div>
+              <div className="text-sm font-medium text-zinc-900 mb-1">申请流程</div>
+              <div className="text-sm text-zinc-500">简单快速</div>
+            </div>
+            <div>
+              <div className="text-sm font-medium text-zinc-900 mb-1">回复时间</div>
+              <div className="text-sm text-zinc-500">3-7个工作日</div>
             </div>
           </div>
-        </div>
-        
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16 w-full flex-1 flex items-center">
-          <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
-            <div className="space-y-6 sm:space-y-8">
-              <div className="space-y-4">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 rounded-round mb-2">
-                  <UserPlus className="w-3.5 h-3.5 text-accent" />
-                  <span className="text-xs font-medium text-accent tracking-wide uppercase">JOIN US / 加入百业</span>
-                </div>
-                <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
-                  成为团队一员
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  欢迎有志之士申请加入燕云十六声{siteTitle}，与我们一起创造精彩未来。简单的申请流程，专业的团队环境。
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
-                    <div className="text-card-foreground font-medium mb-1">申请流程简单</div>
-                    <div className="text-sm text-muted-foreground">3-7日内回复</div>
-                  </div>
-                  <div className="p-6 bg-white border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250 cursor-pointer">
-                    <div className="text-card-foreground font-medium mb-1">专业团队环境</div>
-                    <div className="text-sm text-muted-foreground">共同成长发展</div>
-                  </div>
-                </div>
-                <Link href="/join">
-                  <button className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-card-foreground border border-border rounded-md shadow-small hover:shadow-medium hover:-translate-y-1 transition-all duration-250">
-                    <span className="text-base font-medium">立即申请加入</span>
-                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-250" />
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:order-first group">
-              <div className="aspect-square rounded-lg bg-gradient-to-br from-accent/20 to-primary/20 border border-border p-12 flex items-center justify-center relative overflow-hidden shadow-small hover:shadow-medium hover:-translate-y-1.5 transition-all duration-250">
-                <UserPlus className="w-28 h-28 text-accent relative z-10 transform group-hover:scale-110 transition-transform duration-250" />
-              </div>
-            </div>
-          </div>
+          
+          {/* CTA按钮 */}
+          <Link href="/join">
+            <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-zinc-900 text-white hover:bg-zinc-800 transition-all text-base font-medium overflow-hidden">
+              <span className="relative z-10">立即申请加入</span>
+              <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform relative z-10" />
+              {/* 悬浮时从左到右的光效 */}
+              <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700" />
+            </button>
+          </Link>
         </div>
       </section>
 

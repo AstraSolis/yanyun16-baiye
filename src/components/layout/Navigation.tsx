@@ -30,7 +30,7 @@ export function Navigation() {
   }
 
   return (
-    <header className="relative z-20 p-6">
+    <header className="relative z-30 p-6">
       <div className="flex items-center justify-between">
         {/* 标志 / 品牌 */}
         <div className="flex items-center">

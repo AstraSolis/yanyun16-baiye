@@ -1,145 +1,137 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
-import { ExternalLink, Github, FileText, LucideIcon } from 'lucide-react'
-
-interface FooterLink {
-  label: string
-  href: string
-  icon?: LucideIcon
-  external?: boolean
-}
+import { Github, FileText } from 'lucide-react'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
 
-  const footerLinks: { title: string; links: FooterLink[] }[] = [
-    {
-      title: '网站导航',
-      links: [
-        { label: '首页', href: '/' },
-        { label: '百业宣传', href: '/promotion' },
-        { label: '百业活动', href: '/activities' },
-        { label: '百业成员', href: '/members' },
-        { label: '加入百业', href: '/join' },
-      ]
-    },
-    {
-      title: '项目信息',
-      links: [
-        { label: '项目源码', href: '#', icon: Github, external: true },
-        { label: '信息来源', href: '/sources', icon: FileText },
-        { label: '发布日志', href: '/releases', icon: FileText },
-      ]
-    }
-  ]
-
   return (
-    <footer className="bg-muted/10 border-t border-white/10">
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        {/* 主要页脚内容 */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-white border-t border-zinc-200">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
+        {/* 主要内容 */}
+        <div className="py-12 grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* 品牌部分 */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground">
+          <div className="md:col-span-2">
+            <h3 className="text-sm font-medium text-zinc-900 mb-3">
               燕云十六声 · 百业
             </h3>
-            <p className="text-sm text-muted-foreground max-w-md">
-              {/* 待替换：相关描述，并更新 SOURCES.md */}
-              这是一个数据驱动的静态站点，用于展示燕云十六声百业的相关信息。
+            <p className="text-sm text-zinc-500 leading-relaxed max-w-md">
+              数据驱动的静态站点，展示燕云十六声百业的相关信息。<br />
               所有内容均以最新公告为准。
             </p>
-            <div className="flex flex-wrap gap-2">
-              <Badge variant="secondary" className="text-xs">
-                静态站点
-              </Badge>
-              <Badge variant="outline" className="text-xs">
-                数据驱动
-              </Badge>
-              <Badge variant="outline" className="text-xs">
-                开源项目
-              </Badge>
-            </div>
           </div>
 
-          {/* 导航链接 */}
-          {footerLinks.map((section) => (
-            <div key={section.title} className="space-y-4">
-              <h4 className="text-sm font-medium text-foreground">
-                {section.title}
-              </h4>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.href}>
-                    <motion.div whileHover={{ x: 2 }}>
-                      <Link
-                        href={link.href}
-                        className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
-                        target={link.external ? '_blank' : undefined}
-                        rel={link.external ? 'noopener noreferrer' : undefined}
-                      >
-                        {link.icon && <link.icon className="h-4 w-4 mr-2" />}
-                        {link.label}
-                        {link.external && <ExternalLink className="h-3 w-3 ml-1" />}
-                      </Link>
-                    </motion.div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* 导航 */}
+          <div>
+            <h4 className="text-xs font-medium tracking-widest text-zinc-400 uppercase mb-3">
+              导航
+            </h4>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
+                  首页
+                </Link>
+              </li>
+              <li>
+                <Link href="/promotion" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
+                  百业宣传
+                </Link>
+              </li>
+              <li>
+                <Link href="/activities" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
+                  百业活动
+                </Link>
+              </li>
+              <li>
+                <Link href="/members" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
+                  百业成员
+                </Link>
+              </li>
+              <li>
+                <Link href="/join" className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
+                  加入百业
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* 项目信息 */}
+          <div>
+            <h4 className="text-xs font-medium tracking-widest text-zinc-400 uppercase mb-3">
+              项目
+            </h4>
+            <ul className="space-y-2">
+              <li>
+                <Link 
+                  href="#" 
+                  className="inline-flex items-center gap-1.5 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="w-3.5 h-3.5" />
+                  源码
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/sources" 
+                  className="inline-flex items-center gap-1.5 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  信息来源
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/releases" 
+                  className="inline-flex items-center gap-1.5 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
+                >
+                  <FileText className="w-3.5 h-3.5" />
+                  发布日志
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <Separator className="my-8" />
+        {/* 细线分割 */}
+        <div className="h-px bg-zinc-200" />
 
-        {/* 底部页脚 */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-sm text-muted-foreground">
-            © {currentYear} 燕云十六声 · 百业. 
-            <span className="ml-2">项目名称: yanyun16-baiye</span>
+        {/* 底部信息 */}
+        <div className="py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="text-xs text-zinc-400">
+            © {currentYear} 燕云十六声 · 百业 · yanyun16-baiye
           </div>
           
-          <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-            <span>构建于 Next.js</span>
-            <Separator orientation="vertical" className="h-4" />
-            <span>支持静态导出</span>
-            <Separator orientation="vertical" className="h-4" />
-            <Link 
-              href="https://github.com"
-              className="hover:text-foreground transition-colors inline-flex items-center"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Github className="h-4 w-4 mr-1" />
-              开源
-            </Link>
+          <div className="flex items-center gap-4 text-xs text-zinc-400">
+            <span>Next.js</span>
+            <span>·</span>
+            <span>静态导出</span>
+            <span>·</span>
+            <span>开源项目</span>
           </div>
         </div>
 
-        {/* 管理员提醒 */}
-        <div className="mt-8 p-4 bg-primary/5 border border-primary/20 rounded-lg backdrop-blur-xs">
-          <div className="flex items-start space-x-2">
-            <FileText className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-            <div className="text-xs text-muted-foreground">
-              <p className="font-medium mb-1 text-foreground">管理员提醒：</p>
-              <p>
-                此站点当前显示占位内容。请根据最新信息更新相关数据文件：
-                <code className="mx-1 px-1 py-0.5 bg-muted/20 rounded text-xs">
-                  content/members.json
-                </code>、
-                <code className="mx-1 px-1 py-0.5 bg-muted/20 rounded text-xs">
-                  content/siteconfig.json
-                </code>
-                并在 
-                <code className="mx-1 px-1 py-0.5 bg-muted/20 rounded text-xs">
-                  SOURCES.md
-                </code>
-                中记录信息来源。
-              </p>
-            </div>
+        {/* 管理员提醒 - 极简版 */}
+        <div className="pb-8">
+          <div className="p-4 bg-zinc-50 border-l-2 border-zinc-900">
+            <p className="text-xs text-zinc-500 leading-relaxed">
+              <span className="font-medium text-zinc-900">管理员提醒：</span>
+              {' '}请根据最新信息更新{' '}
+              <code className="px-1.5 py-0.5 bg-white border border-zinc-200 rounded text-zinc-900">
+                content/members.json
+              </code>
+              {' '}、{' '}
+              <code className="px-1.5 py-0.5 bg-white border border-zinc-200 rounded text-zinc-900">
+                content/siteconfig.json
+              </code>
+              {' '}并在{' '}
+              <code className="px-1.5 py-0.5 bg-white border border-zinc-200 rounded text-zinc-900">
+                SOURCES.md
+              </code>
+              {' '}中记录信息来源。
+            </p>
           </div>
         </div>
       </div>
