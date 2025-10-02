@@ -40,11 +40,17 @@ cp -r content-template/ content/
 ### 3. 启动开发
 
 ```bash
-# 启动开发服务器
+# 一键启动开发环境（推荐）
 npm run dev
+# 同时启动：开发服务器 + 配置文件监听
 ```
 
 访问 `http://localhost:3000` 查看网站效果。
+
+**开发环境特性**：
+- ✅ **配置文件热重载** - 修改 YAML 后自动生成 JSON，刷新浏览器即可看到变化
+- ✅ **自动监听** - 无需手动运行生成脚本
+- ✅ **实时预览** - 所见即所得的开发体验
 
 ## 配置指南
 
@@ -65,6 +71,11 @@ npm run dev
    # content/siteconfig.yaml
    siteTitle: 你的站点名称  # 显示在浏览器标题
    siteDescription: 站点描述  # SEO描述
+   
+   # 首页展示配置
+   homeDisplay:
+     heroAvatar: "https://example.com/avatar.jpg"  # 首页圆形头像图片URL
+   
    # ... 更多配置项
    ```
 
@@ -80,9 +91,12 @@ npm run dev
 
 4. **测试配置**
    ```bash
-   npm run dev          # 启动开发服务器
+   npm run dev          # 启动开发服务器（自动监听配置文件变化）
    npm run validate     # 验证配置文件格式
+   npm run generate     # 手动生成静态JSON数据（通常不需要）
    ```
+   
+   **提示**：开发环境下，修改 YAML 配置文件后会自动生成 JSON，只需刷新浏览器即可看到变化！
 
 ### 自定义样式
 
@@ -214,6 +228,7 @@ npm run validate
 
 **配置内容包括**：
 - **基础站点信息**：标题、描述、关键词、图标
+- **首页展示配置**：圆形头像图片URL
 - **社交媒体链接**：QQ、微信、微博、邮箱
 - **显示设置**：主题、标签数量、响应时间
 - **成员信息**：头像、简介、标签、加入时间、地理位置
@@ -232,7 +247,8 @@ npm run validate
 
 1. **首页 (`/`)** - 炫酷3D背景 + 百业展示
    - 3D Shader背景效果
-   - 响应式Hero区域设计
+   - 响应式Hero区域设计（居中布局）
+   - 可配置圆形头像展示
    - 导航到各功能页面
 
 2. **百业宣传 (`/promotion`)** - 团队介绍与宣传
@@ -285,10 +301,14 @@ npm run validate
 A: 请确保：
 1. 配置文件在 `content/` 目录下
 2. 文件格式正确（可运行 `npm run validate` 检查）
-3. 重新启动了开发服务器
+3. 使用 `npm run dev` 启动（会自动监听配置文件变化）
+4. 修改配置后等待1-2秒，然后刷新浏览器（开发环境支持热重载）
 
 **Q: 如何添加新成员？**
 A: 在 `content/members.yaml` 中添加新的成员对象，确保 `id` 唯一。
+
+**Q: 如何配置首页头像？**
+A: 在 `content/siteconfig.yaml` 中设置 `homeDisplay.heroAvatar` 字段为图片URL。支持远程链接和本地路径，推荐使用至少400x400像素的正方形图片。
 
 **Q: 配置文件支持哪些注释格式？**
 A: 支持 `#` 行注释（YAML 标准格式）。
@@ -303,13 +323,15 @@ A: Next.js 15 + React 19 + TypeScript + Tailwind CSS v4 + Framer Motion + Radix 
 
 | 脚本 | 描述 |
 |------|------|
-| `npm run dev` | 启动开发服务器 (http://localhost:3000) |
-| `npm run prebuild` | 生成静态数据文件 (构建前预处理) |
+| `npm run dev` | 🚀 一键启动开发环境（开发服务器 + 配置文件监听） |
+| `npm run dev:server` | 启动开发服务器（仅服务器，不监听配置文件） |
+| `npm run watch` | 监听配置文件变化并自动生成JSON |
+| `npm run generate` | 手动生成静态数据文件 |
+| `npm run prebuild` | 构建前预处理（自动生成静态数据） |
 | `npm run build` | 构建生产版本 |
-| `npm run export` | 静态导出 (next build && next export) |
 | `npm start` | 启动生产服务器 |
 | `npm run preview` | 预览静态导出文件 (使用serve) |
-| `npm run validate` | 验证JSONC配置文件格式 |
+| `npm run validate` | 验证YAML配置文件格式 |
 | `npm run lint` | ESLint代码质量检查 |
 ---
 

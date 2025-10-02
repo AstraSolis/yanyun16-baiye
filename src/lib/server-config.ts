@@ -25,6 +25,9 @@ export interface SiteConfig {
   }
   contactWebhook: string
   defaultAvatar: string
+  homeDisplay?: {
+    heroAvatar: string
+  }
   socialMedia: {
     QQ: string
     wechat: string

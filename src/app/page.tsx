@@ -106,47 +106,81 @@ export default function HomePage() {
         >
           <ShaderBackground>
             <Navigation />
-            {/* 主视觉内容 - 左下角定位，类似shader-showcase */}
+            {/* 主视觉内容 - 居中布局 */}
             <main 
-              className="absolute bottom-8 left-8 z-20 max-w-lg opacity-0"
+              className="absolute inset-0 z-20 flex items-center justify-center px-8 opacity-0"
               style={{
-                animation: 'slideUp 0.8s ease-out forwards',
+                animation: 'fadeIn 0.8s ease-out forwards',
                 animationDelay: '0.3s'
               }}
             >
-              <div className="text-left">
-                <div
-                  className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 backdrop-blur-xs mb-4 relative glass-effect"
-                >
-                  <div className="absolute top-0 left-1 right-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full" />
-                  <span className="text-white/90 text-xs font-light relative z-10">✨ 燕云十六声{siteTitle}组织</span>
+              <div className="max-w-6xl w-full flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+                {/* 左侧文字内容 */}
+                <div className="flex-1 text-left lg:text-left">
+                  <div
+                    className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 backdrop-blur-xs mb-4 relative glass-effect"
+                  >
+                    <div className="absolute top-0 left-1 right-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent rounded-full" />
+                    <span className="text-white/90 text-xs font-light relative z-10">✨ 燕云十六声{siteTitle}组织</span>
+                  </div>
+
+                  {/* 主标题 */}
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl md:leading-16 tracking-tight font-light text-white mb-4">
+                    <span className="font-medium italic instrument">汇聚</span> 天下英才
+                    <br />
+                    <span className="font-light tracking-tight text-white">共创辉煌未来</span>
+                  </h1>
+
+                  {/* 描述 */}
+                  <p className="text-xs font-light text-white/70 mb-6 leading-relaxed max-w-lg">
+                    {siteDescription} - 致力于为成员提供专业的游戏指导、
+                    丰富的福利待遇和良好的社交环境，共同打造顶级的游戏体验。
+                  </p>
+
+                  {/* 按钮 */}
+                  <div className="flex items-center gap-4 flex-wrap">
+                    <Link href="/members">
+                      <button className="btn-secondary">
+                        了解成员
+                      </button>
+                    </Link>
+                    <Link href="/join">
+                      <button className="btn-primary">
+                        加入{siteTitle}
+                      </button>
+                    </Link>
+                  </div>
                 </div>
 
-                {/* 主标题 */}
-                <h1 className="text-5xl md:text-6xl md:leading-16 tracking-tight font-light text-white mb-4">
-                  <span className="font-medium italic instrument">汇聚</span> 天下英才
-                  <br />
-                  <span className="font-light tracking-tight text-white">共创辉煌未来</span>
-                </h1>
-
-                {/* 描述 */}
-                <p className="text-xs font-light text-white/70 mb-4 leading-relaxed">
-                  {siteDescription} - 致力于为成员提供专业的游戏指导、
-                  丰富的福利待遇和良好的社交环境，共同打造顶级的游戏体验。
-                </p>
-
-                {/* 按钮 */}
-                <div className="flex items-center gap-4 flex-wrap">
-                  <Link href="/members">
-                    <button className="btn-secondary">
-                      了解成员
-                    </button>
-                  </Link>
-                  <Link href="/join">
-                    <button className="btn-primary">
-                      加入{siteTitle}
-                    </button>
-                  </Link>
+                {/* 右侧圆形头像 */}
+                <div 
+                  className="flex-shrink-0 opacity-0"
+                  style={{
+                    animation: 'fadeIn 0.8s ease-out forwards',
+                    animationDelay: '0.5s'
+                  }}
+                >
+                  <div className="relative">
+                    {/* 圆形头像容器 */}
+                    <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl backdrop-blur-sm bg-white/5">
+                      {config?.homeDisplay?.heroAvatar ? (
+                        <Image
+                          src={config.homeDisplay.heroAvatar}
+                          alt="头像"
+                          width={384}
+                          height={384}
+                          className="w-full h-full object-cover"
+                          priority
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5">
+                          <span className="text-white/30 text-sm">此处可配置图片</span>
+                        </div>
+                      )}
+                    </div>
+                    {/* 装饰性光晕 */}
+                    <div className="absolute -inset-4 bg-white/5 rounded-full blur-2xl -z-10"></div>
+                  </div>
                 </div>
               </div>
             </main>
@@ -419,16 +453,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-      {/* 页脚 */}
-      <footer className="py-12 sm:py-16 border-t border-border">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16">
-          <div className="text-center space-y-2">
-            <div className="text-sm text-muted-foreground">© 2025 燕云十六声{siteTitle}. All rights reserved.</div>
-            <div className="text-xs text-muted-foreground">{siteDescription}</div>
-          </div>
-        </div>
-      </footer>
 
       {/* 底部渐变遮罩 */}
       <div className="fixed bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none"></div>

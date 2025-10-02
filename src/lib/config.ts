@@ -27,7 +27,9 @@ export type {
 // 客户端版本 - 从静态JSON文件获取配置
 export async function getSiteConfigClient(): Promise<SiteConfig | null> {
   try {
-    const response = await fetch('/data/siteconfig.json')
+    // 添加时间戳避免开发环境缓存
+    const timestamp = process.env.NODE_ENV === 'development' ? `?t=${Date.now()}` : ''
+    const response = await fetch(`/data/siteconfig.json${timestamp}`)
     if (!response.ok) {
       throw new Error('Failed to fetch config')
     }

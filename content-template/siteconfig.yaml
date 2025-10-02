@@ -14,6 +14,10 @@ siteIcon:
 contactWebhook: ""  # 用于表单提交的Webhook URL（如果需要）
 defaultAvatar: /assets/placeholders/avatar-small.svg  # 默认头像路径
 
+# 首页展示配置
+homeDisplay:
+  heroAvatar: ""  # 首页主视觉头像图片URL（圆形展示）
+
 # 社交媒体链接 - 填写实际的联系方式
 socialMedia:
   QQ: ""  # QQ群或QQ号
